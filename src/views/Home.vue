@@ -92,33 +92,94 @@
         <div class="row">
           <div class="col-lg-4">
             <div class="card">
-              <h5 class="card-title"><i class="fas fa-check-double"></i> Easy to use</h5>
-                <p class="card-text">
-                  SMECRM is an easy to use  intuitive tool built <br> with excellent  user experience <br> in place
-                </p>
+              <h5 class="card-title">
+                <i class="fas fa-check-double"></i> Easy to use
+              </h5>
+              <p class="card-text">
+                SMECRM is an easy to use intuitive tool built <br />
+                with excellent user experience <br />
+                in place
+              </p>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="card">
-              <h5 class="card-title"><i class="fas fa-shield-alt"></i> Secure system</h5>
-                <p class="card-text">
-                  With greater increase in user data breach, <br> our system is built on high security <br> measures to ensure user data safety
-                </p>
+              <h5 class="card-title">
+                <i class="fas fa-shield-alt"></i> Secure system
+              </h5>
+              <p class="card-text">
+                With greater increase in user data breach, <br />
+                our system is built on high security <br />
+                measures to ensure user data safety
+              </p>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="card">
-              <h5 class="card-title"><i class="fas fa-chart-line"></i> Read report</h5>
-                <p class="card-text">
-                  Accurate and timely report on performance, <br> trades, marketing, and analysis, <br> our system provides the best option for SMEs
-                </p>
+              <h5 class="card-title">
+                <i class="fas fa-chart-line"></i> Read report
+              </h5>
+              <p class="card-text">
+                Accurate and timely report on performance, <br />
+                trades, marketing, and analysis, <br />
+                our system provides the best option for SMEs
+              </p>
             </div>
           </div>
         </div>
       </div>
       <!-- End of Business Tracking -->
 
+      <!-- Work Better Section -->
+      <div class="better_section container">
+        <div class="section_header">
+          <h3>Get better work done</h3>
+          <p>
+            Get more work done in a short time with our powerful automation.
+            <br />
+            Link your projects from different platform with just one click!
+          </p>
+        </div>
 
+        <div class="row">
+          <div class="col-lg-4">
+            <!-- Card One -->
+            <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+              <h5 class="card-title">
+                <i class="fas fa-tachometer-alt dashboard"></i> <span>Dashboard</span>
+              </h5>
+              <p class="card-text">
+                See your activities all in one screen with our interactive dashboard!
+              </p>
+            </div>
+          </div>
+
+          <!-- Card two -->
+          <div class="col-lg-4 management">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+              <h5 class="card-title">
+                <i class="fas fa-project-diagram project"></i> <span>Project Management</span>
+              </h5>
+              <p class="card-text">
+                Manage your sales and projects from one place! Save the stress with diverse apps!
+              </p>
+            </div>
+          </div>
+
+          <!-- Card Three -->
+          <div class="col-lg-4 platform">
+            <div class="card shadow-sm p-3 mb-5 bg-body rounded">
+              <h5 class="card-title">
+                <i class="fas fa-network-wired integrated"></i> <span>Integrated Platform</span>
+              </h5>
+              <p class="card-text">
+                Integrate your activities with our all-powerful automation platform 🚀! 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Better Section -->
     </div>
   </div>
 </template>
@@ -233,5 +294,64 @@ export default {
 .business_track .card p {
   font-size: 15px;
   color: grey;
+}
+
+/* Business section */
+.better_section {
+  margin-bottom: 50px;
+}
+.better_section .card {
+  border: none;
+  /* margin-block: 30px; */
+}
+.better_section .management {
+  margin-top: 80px;
+}
+.better_section .platform {
+  margin-top: 160px;
+}
+.better_section .section_header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.better_section .section_header h3 {
+  margin-bottom: 20px;
+  font-size: 35px;
+  font-weight: 800;
+  color: #03256c;
+}
+.better_section .section_header p {
+  font-size: 15px;
+  color: grey;
+}
+.better_section .card .card-title {
+  font-size: 18px;
+  margin-block: 15px;
+}
+.better_section .card .card-title i {
+  margin-right: 10px;
+  color: #fff;
+  border-radius: 99px;
+  padding: 10px;
+}
+.better_section .card .card-title .dashboard {
+  background: orange;
+  font-size: 10px;
+}
+.better_section .card .card-title .project {
+  background: #7868E6;
+  font-size: 10px;
+  border-radius: 50%;
+}
+.better_section .card .card-title .integrated {
+  background-color: #FFC93C;
+  font-size: 10px;
+}
+.better_section .card .card-title span {
+  color: #03256c;
+  font-weight: 300;
+}
+.better_section .card p {
+  font-size: 15px;
 }
 </style>
