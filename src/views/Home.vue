@@ -32,7 +32,7 @@
         <div class="row">
           <!-- Column One -->
           <div class="col-lg-4">
-            <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
               <div class="card-body">
                 <div class="card-img">
                   <i class="fas fa-tasks completed"></i>
@@ -47,7 +47,7 @@
           <!-- End of Column one -->
           <!-- Column Two -->
           <div class="col-lg-4">
-            <div class="card">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
               <div class="card-body">
                 <div class="card-img">
                   <i class="fas fa-spinner uncompleted"></i>
@@ -64,7 +64,7 @@
 
           <!-- Column Three -->
           <div class="col-lg-4">
-            <div class="card">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
               <div class="card-body">
                 <div class="card-img">
                   <i class="fas fa-pencil-ruler pending"></i>
@@ -134,6 +134,7 @@ export default {
   margin-bottom: 20px;
   color: #03256c;
   font-weight: 200;
+  font-size: 20px;
 }
 .insight__section img {
   height: 100px;
