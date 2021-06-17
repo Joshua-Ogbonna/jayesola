@@ -81,6 +81,44 @@
         </div>
       </div>
       <!-- End of Insight Section (Home Page) -->
+
+      <!-- Tracking your business -->
+      <div class="business_track container">
+        <h3>
+          Control and <br />
+          track your business
+        </h3>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card">
+              <h5 class="card-title"><i class="fas fa-check-double"></i> Easy to use</h5>
+                <p class="card-text">
+                  SMECRM is an easy to use  intuitive tool built <br> with excellent  user experience <br> in place
+                </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card">
+              <h5 class="card-title"><i class="fas fa-shield-alt"></i> Secure system</h5>
+                <p class="card-text">
+                  With greater increase in user data breach, <br> our system is built on high security <br> measures to ensure user data safety
+                </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card">
+              <h5 class="card-title"><i class="fas fa-chart-line"></i> Read report</h5>
+                <p class="card-text">
+                  Accurate and timely report on performance, <br> trades, marketing, and analysis, <br> our system provides the best option for SMEs
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Business Tracking -->
+
+
     </div>
   </div>
 </template>
@@ -146,7 +184,7 @@ export default {
   margin-bottom: 20px;
 }
 .insight__section .card h5 {
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: -2px;
   color: #03256c;
   font-weight: 800;
@@ -163,12 +201,37 @@ export default {
   color: #fff;
 }
 .insight__section .card .completed {
-  background-color: #7952B3;
+  background-color: #7952b3;
 }
 .insight__section .card .uncompleted {
-  background-color: #7ECA9C;
+  background-color: #7eca9c;
 }
 .insight__section .card .pending {
-  background-color: #FFC107;
+  background-color: #ffc107;
+}
+
+/* Business Track Styles */
+.business_track {
+  margin-bottom: 100px;
+}
+.business_track .card {
+  border: none;
+}
+.business_track h3 {
+  margin-bottom: 40px;
+  font-size: 40px;
+  color: #03256c;
+  font-weight: 800;
+}
+.business_track .card .card-title {
+  font-size: 18px;
+  color: #03256c;
+}
+.business_track .card .card-title h5 {
+  margin-left: 40px;
+}
+.business_track .card p {
+  font-size: 15px;
+  color: grey;
 }
 </style>
