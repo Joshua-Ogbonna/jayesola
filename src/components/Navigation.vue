@@ -18,7 +18,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav left_ul">
-            
             <li class="nav-item">
               <a class="nav-link" href="#">Solution</a>
             </li>
@@ -41,7 +40,7 @@
               <a href="#" class="nav-link">Login</a>
             </li>
             <li class="nav-item">
-              <button href="#" class="nav-link">Sign Up</button>
+              <Button class="button" variant="solid" content="Sign Up" />
             </li>
           </ul>
         </div>
@@ -51,22 +50,29 @@
 </template>
 
 <script>
-export default {};
+import Button from "@/components/Button";
+export default {
+  components: {
+    Button,
+  },
+};
 </script>
 
 <style scoped>
-  
-  nav {
-    padding: 20px 30px;
-  }
-  .navbar-brand i {
-    color: #03256C;
-  }
-  .left_ul li a {
-    margin-left: 30px;
-    color: lightblue;
-  }
-  .right_ul li {
-    margin-right: 30px;
-  }
+nav {
+  padding: 20px 30px;
+}
+.navbar-brand i {
+  color: #03256c;
+}
+.left_ul li a {
+  margin-left: 30px;
+  color: lightblue;
+}
+.right_ul li {
+  margin-right: 30px;
+}
+.button {
+  border: none !important;
+}
 </style>
