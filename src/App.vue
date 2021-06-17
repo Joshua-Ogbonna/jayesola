@@ -6,5 +6,7 @@
 </template>
 
 <style>
-
+  * {
+    font-family: 'Heebo', sans-serif;
+  }
 </style>
