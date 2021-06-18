@@ -146,10 +146,12 @@
             <!-- Card One -->
             <div class="card shadow-lg p-3 mb-5 bg-body rounded">
               <h5 class="card-title">
-                <i class="fas fa-tachometer-alt dashboard"></i> <span>Dashboard</span>
+                <i class="fas fa-tachometer-alt dashboard"></i>
+                <span>Dashboard</span>
               </h5>
               <p class="card-text">
-                See your activities all in one screen with our interactive dashboard!
+                See your activities all in one screen with our interactive
+                dashboard!
               </p>
             </div>
           </div>
@@ -158,10 +160,12 @@
           <div class="col-lg-4 management">
             <div class="card shadow p-3 mb-5 bg-body rounded">
               <h5 class="card-title">
-                <i class="fas fa-project-diagram project"></i> <span>Project Management</span>
+                <i class="fas fa-project-diagram project"></i>
+                <span>Project Management</span>
               </h5>
               <p class="card-text">
-                Manage your sales and projects from one place! Save the stress with diverse apps!
+                Manage your sales and projects from one place! Save the stress
+                with diverse apps!
               </p>
             </div>
           </div>
@@ -170,16 +174,145 @@
           <div class="col-lg-4 platform">
             <div class="card shadow-sm p-3 mb-5 bg-body rounded">
               <h5 class="card-title">
-                <i class="fas fa-network-wired integrated"></i> <span>Integrated Platform</span>
+                <i class="fas fa-network-wired integrated"></i>
+                <span>Integrated Platform</span>
               </h5>
               <p class="card-text">
-                Integrate your activities with our all-powerful automation platform 🚀! 
+                Integrate your activities with our all-powerful automation
+                platform 🚀!
               </p>
             </div>
           </div>
         </div>
       </div>
       <!-- End of Better Section -->
+
+      <!-- Pricing Section -->
+      <div class="pricing_section container">
+        <div class="pricing_header">
+          <h3>
+            Simple, transparent pricing
+          </h3>
+          <p>
+            Choose the plan that's right for your company. All plans include a
+            30 day trial.
+          </p>
+        </div>
+
+        <!-- Card groups -->
+        <div class="row">
+          <!-- Basic Pricing -->
+          <div class="col-lg-4">
+            <div class="card card shadow p-3 mb-5 bg-body rounded basic">
+              <div class="card-body">
+                <div class="card_header">
+                  <h4 class="price_header">Basic</h4>
+                  <p class="price_headerParagraph">
+                    Unlimited users
+                  </p>
+                  <div class="card_price">
+                    <h5 class="price">
+                      $10<span class="price_description">/month</span>
+                    </h5>
+                  </div>
+                </div>
+                <hr />
+
+                <!-- pricing details -->
+                <div class="pricing_details">
+                  <ul>
+                    <li>
+                      
+                      <span>Event Reporting, Action Tracking</span>
+                    </li>
+                    <li><s>Live Content</s></li>
+                    <li><s>Dedicated Support</s></li>
+                  </ul>
+                </div>
+
+                <!-- Action Button -->
+                <c-button size="lg" width="100%">Get Started</c-button>
+              </div>
+            </div>
+          </div>
+          <!-- Business Pricing -->
+          <div class="col-lg-4">
+            <div class="card card shadow p-3 mb-5 bg-body rounded business">
+              <div class="card-body">
+                <div class="card_header">
+                  <h4 class="price_header">Business</h4>
+                  <p class="price_headerParagraph">
+                    Unlimited users
+                  </p>
+                  <div class="card_price">
+                    <h5 class="price">
+                      $20<span class="price_description">/month</span>
+                    </h5>
+                  </div>
+                </div>
+                <hr />
+
+                <!-- pricing details -->
+                <div class="pricing_details">
+                  <ul>
+                    <li>
+                      
+                      <span>Event Reporting, Action Tracking</span>
+                    </li>
+                    <li>
+                      <span>Live Content</span>
+                    </li>
+                    <li>
+                      <span>Dedicated Support</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Action Button -->
+                <c-button size="lg" width="100%">Get Started</c-button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entreprise pricing -->
+          <div class="col-lg-4">
+            <div class="card card shadow p-3 mb-5 bg-body rounded enterprise">
+              <div class="card-body">
+                <div class="card_header">
+                  <h4 class="price_header">Enterprise</h4>
+                  <p class="price_headerParagraph">
+                    Unlimited users
+                  </p>
+                  <div class="card_price">
+                    <h5 class="price">Custom</h5>
+                  </div>
+                </div>
+                <hr />
+
+                <!-- pricing details -->
+                <div class="pricing_details">
+                  <ul>
+                    <li>
+                      
+                      <span>Event Reporting, Action Tracking</span>
+                    </li>
+                    <li>
+                      <span>Live Content</span>
+                    </li>
+                    <li>
+                      <span>Dedicated Support</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Action Button -->
+                <c-button size="lg" width="100%">Get Started</c-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Pricing Section -->
     </div>
   </div>
 </template>
@@ -189,12 +322,14 @@
 import Navigation from "@/components/Navigation.vue";
 // import Background from "../assets/images/background_picture.jpeg"
 import Button from "@/components/Button.vue";
+import { CButton } from "@chakra-ui/vue";
 
 export default {
   name: "Home",
   components: {
     Navigation,
     Button,
+    CButton,
   },
 };
 </script>
@@ -316,7 +451,7 @@ export default {
 }
 .better_section .section_header h3 {
   margin-bottom: 20px;
-  font-size: 35px;
+  font-size: 40px;
   font-weight: 800;
   color: #03256c;
 }
@@ -339,12 +474,12 @@ export default {
   font-size: 10px;
 }
 .better_section .card .card-title .project {
-  background: #7868E6;
+  background: #7868e6;
   font-size: 10px;
   border-radius: 50%;
 }
 .better_section .card .card-title .integrated {
-  background-color: #FFC93C;
+  background-color: #ffc93c;
   font-size: 10px;
 }
 .better_section .card .card-title span {
@@ -353,5 +488,90 @@ export default {
 }
 .better_section .card p {
   font-size: 15px;
+}
+
+/* Pricing section styles */
+.pricing_section {
+  margin-bottom: 70px;
+}
+.pricing_section .pricing_header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.pricing_section .pricing_header h3 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #03256c;
+  margin-bottom: 20px;
+}
+.pricing_section .pricing_header p {
+  font-size: 15px;
+  color: grey;
+}
+.pricing_section .card {
+  border: .1px solid rgb(236, 228, 228);
+}
+.pricing_section .card .card_header {
+  text-align: center;
+}
+.pricing_section .card .card_header h4 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #03256c;
+}
+.pricing_section .card .card_header p {
+  font-size: 15px;
+  margin-bottom: 30px;
+  color: grey;
+}
+.pricing_section .card .card_header .card_price h5 {
+  color: #03256c;
+  font-size: 60px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+.pricing_section .card .card_header .card_price h5 span {
+  color: rgb(128, 123, 123);
+  font-size: 15px;
+} 
+.pricing_section .card .pricing_details {
+  margin-bottom: 30px;  
+}
+.pricing_section .card .pricing_details ul {
+  margin-top: 30px;
+}
+.pricing_section .card .pricing_details ul li {
+  list-style: none;
+  font-size: 15px;
+  /* padding-left: -60px; */
+  margin-bottom: 10px;
+}
+.pricing_section .card .pricing_details ul li span {
+  color: rgb(128, 123, 123);
+  font-weight: 800;
+}
+.pricing_section .basic,
+.pricing_section .enterprise {
+  margin-top: 40px;
+}
+.pricing_section .business {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  height: 550px;
+  background-color: rgb(243, 240, 240) !important;
+}
+.pricing_section .business .card-body {
+  margin-top: 40px;
+}
+.pricing_section .business button {
+  background-color: #03256c;
+  color: #fff;
+  border: none;
+}
+.pricing_section .card button {
+  font-size: 15px;
+}
+.pricing_section .card button:active {
+  outline: none !important;
 }
 </style>
