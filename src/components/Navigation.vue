@@ -2,9 +2,9 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
-        <a href="#" class="navbar-brand">
+        <router-link to="/" class="navbar-brand">
           <i class="fas fa-link"></i>
-        </a>
+        </router-link>
         <button
           class="navbar-toggler"
           type="button"
@@ -19,28 +19,31 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav left_ul">
             <li class="nav-item">
-              <a class="nav-link" href="#">Solution</a>
+              <a class="nav-link" href="/#solution">Solutions</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="/#features">Features</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="/#pricing">Pricing</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Support</a>
+              <router-link class="nav-link" to="/">Support</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Report</a>
+              <router-link class="nav-link" to="/">Report</router-link>
             </li>
           </ul>
 
           <ul class="navbar-nav ms-auto right_ul">
             <li class="nav-item">
-              <a href="#" class="nav-link">Login</a>
+              <router-link to="/login" class="nav-link">Login</router-link>
             </li>
             <li class="nav-item">
+              <router-link to="sign-up" style="text-decoration: none;">
+
               <Button class="button" variant="solid" content="Sign Up" />
+              </router-link>
             </li>
           </ul>
         </div>

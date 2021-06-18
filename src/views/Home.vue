@@ -27,7 +27,7 @@
 
     <div class="main__div">
       <!-- Insight Section (Home Page) -->
-      <div class="insight__section container">
+      <div class="insight__section container" id="solution">
         <p class="head">Insight based on</p>
         <div class="row">
           <!-- Column One -->
@@ -83,7 +83,7 @@
       <!-- End of Insight Section (Home Page) -->
 
       <!-- Tracking your business -->
-      <div class="business_track container">
+      <div class="business_track container" id="features">
         <h3>
           Control and <br />
           track your business
@@ -188,7 +188,7 @@
       <!-- End of Better Section -->
 
       <!-- Pricing Section -->
-      <div class="pricing_section container">
+      <div class="pricing_section container" id="pricing">
         <div class="pricing_header">
           <h3>
             Simple, transparent pricing
