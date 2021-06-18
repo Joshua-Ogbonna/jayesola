@@ -1,7 +1,7 @@
 <template>
 <!-- Design area -->
   <div class="auth_area">
-    <h1>Design area</h1>
+    
   </div>
 </template>
 
@@ -13,5 +13,8 @@
 </script>
 
 <style scoped>
-
+  .auth_area {
+    background: #03256c;
+    height: 100vh;
+  }
 </style>
