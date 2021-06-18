@@ -222,7 +222,6 @@
                 <div class="pricing_details">
                   <ul>
                     <li>
-                      
                       <span>Event Reporting, Action Tracking</span>
                     </li>
                     <li><s>Live Content</s></li>
@@ -256,7 +255,6 @@
                 <div class="pricing_details">
                   <ul>
                     <li>
-                      
                       <span>Event Reporting, Action Tracking</span>
                     </li>
                     <li>
@@ -293,7 +291,6 @@
                 <div class="pricing_details">
                   <ul>
                     <li>
-                      
                       <span>Event Reporting, Action Tracking</span>
                     </li>
                     <li>
@@ -313,6 +310,68 @@
         </div>
       </div>
       <!-- End of Pricing Section -->
+
+      <!-- Last info section -->
+      <div class="last_info">
+        <h3>
+          maximize productivity <br />
+          with SMECRM automation
+        </h3>
+        <p>Go world class! Become a pro! Go with SMECRM 🚀</p>
+        <c-button>Get Started</c-button>
+      </div>
+      <!-- Endof last info section -->
+      <!-- Footer section -->
+      <div class="footer_section container">
+        <div class="row">
+          <!-- Solutions -->
+          <div class="col-md-6 col-lg-3 solutions">
+            <h5>Solutions</h5>
+
+            <p>Integration</p>
+            <p>Automation</p>
+            <p>Sales Reports</p>
+            <p>Marketing</p>
+          </div>
+
+          <!-- Company -->
+          <div class="col-md-6 col-lg-3 company">
+            <h5>Company</h5>
+
+            <p>About</p>
+            <p>Leadership</p>
+            <p>Customer</p>
+            <p>Career</p>
+          </div>
+
+          <!-- Product -->
+          <div class="col-md-6 col-lg-3 product">
+            <h5>Product</h5>
+
+            <p>Personal</p>
+            <p>Business</p>
+            <p>Team</p>
+          </div>
+
+          <!-- Stay with us -->
+          <div class="col-md-6 col-lg-3">
+            <h5>Stay with us</h5>
+            <p>Join our mailing list to get updates</p>
+
+            <input type="search" name="search" id="" />
+            <c-button>search</c-button>
+          </div>
+        </div>
+
+        <!-- Company info -->
+        <div class="row company_info">
+          <div class="col-lg-8">
+            <i class="fas fa-link"></i>
+          </div>
+          <div class="col-lg-4"></div>
+        </div>
+      </div>
+      <!-- End of footer -->
     </div>
   </div>
 </template>
@@ -509,7 +568,7 @@ export default {
   color: grey;
 }
 .pricing_section .card {
-  border: .1px solid rgb(236, 228, 228);
+  border: 0.1px solid rgb(236, 228, 228);
 }
 .pricing_section .card .card_header {
   text-align: center;
@@ -533,9 +592,9 @@ export default {
 .pricing_section .card .card_header .card_price h5 span {
   color: rgb(128, 123, 123);
   font-size: 15px;
-} 
+}
 .pricing_section .card .pricing_details {
-  margin-bottom: 30px;  
+  margin-bottom: 30px;
 }
 .pricing_section .card .pricing_details ul {
   margin-top: 30px;
@@ -545,11 +604,10 @@ export default {
   font-size: 15px;
   /* padding-left: -60px; */
   margin-bottom: 10px;
-}
-.pricing_section .card .pricing_details ul li span {
   color: rgb(128, 123, 123);
   font-weight: 800;
 }
+
 .pricing_section .basic,
 .pricing_section .enterprise {
   margin-top: 40px;
@@ -564,7 +622,7 @@ export default {
   margin-top: 40px;
 }
 .pricing_section .business button {
-  background-color: #03256c;
+  background-color: #2541b2;
   color: #fff;
   border: none;
 }
@@ -573,5 +631,48 @@ export default {
 }
 .pricing_section .card button:active {
   outline: none !important;
+}
+
+/* Last info section */
+.last_info {
+  text-align: center;
+  margin-bottom: 70px;
+}
+.last_info h3 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #03256c;
+  margin-bottom: 20px;
+}
+.last_info p {
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: grey;
+}
+.last_info button {
+  background-color: #2541b2;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  padding: 30px 40px;
+  border-radius: 40px;
+}
+
+/* Footer section */
+.footer_section h5 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #03256c;
+  margin-bottom: 20px;
+}
+.footer_section .solutions p,
+.footer_section .company p,
+.footer_section .product p {
+  cursor: pointer;
+}
+.footer_section p {
+  font-size: 15px;
+  color: grey;
+  line-height: 20px;
 }
 </style>
