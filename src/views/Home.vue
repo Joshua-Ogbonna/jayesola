@@ -358,17 +358,21 @@
             <h5>Stay with us</h5>
             <p>Join our mailing list to get updates</p>
 
-            <input type="search" name="search" id="" />
-            <c-button>search</c-button>
+            <input type="search" name="search" id="" placeholder="email address" />
+            <c-button>submit</c-button>
           </div>
         </div>
 
         <!-- Company info -->
         <div class="row company_info">
-          <div class="col-lg-8">
+          <div class="col-lg-9">
             <i class="fas fa-link"></i>
           </div>
-          <div class="col-lg-4"></div>
+          <div class="col-lg-3 links">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter" style="margin-left: 30px;"></i>
+            <i class="fab fa-instagram" style="margin-left: 30px;"></i>
+          </div>
         </div>
       </div>
       <!-- End of footer -->
@@ -659,6 +663,9 @@ export default {
 }
 
 /* Footer section */
+.footer_section {
+  padding-bottom: 20px;
+}
 .footer_section h5 {
   font-size: 18px;
   font-weight: 800;
@@ -674,5 +681,34 @@ export default {
   font-size: 15px;
   color: grey;
   line-height: 20px;
+}
+.footer_section input {
+  outline: none;
+  border: none;
+  border-radius: 40px;
+  background: rgb(238, 235, 235);
+  padding-block: 18px;
+  padding-left: 26px;
+  padding-right: 60px;
+  font-size: 13px;
+}
+.footer_section button {
+  background: #FFC93C;
+  border: none;
+  color: #fff;
+  font-size: 13px;
+  position: relative;
+  bottom: 55px;
+  left: 160px;
+  border-radius: 40px;
+  padding-block: 28px;
+  padding-inline: 20px;
+}
+.footer_section .company_info .links i {
+  border-radius: 99px;
+  background-color: rgb(201, 196, 196);
+  font-size: 10px;
+  padding: 10px;
+  cursor: pointer;
 }
 </style>
