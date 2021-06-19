@@ -1,6 +1,11 @@
 <template>
-  <div>
-    
+  <div class="dashboard">
+    <div class="sidebar">
+
+    </div>
+    <div class="main__bar">
+
+    </div>
   </div>
 </template>
 
@@ -11,5 +16,8 @@
 </script>
 
 <style scoped>
-  
+  .dashboard {
+    display: flex;
+    align-items: center;
+  }
 </style>
