@@ -137,7 +137,7 @@ export default {};
 }
 .manage,
 .integrations {
-  padding-left: 20px;
+  
   margin-top: 20px;
 }
 .integrations {
@@ -146,14 +146,22 @@ export default {};
 .manage h5,
 .integrations h5 {
   font-size: 15px;
-  margin-bottom: 20px;
-  color: #000;
+  margin-bottom: 10px;
+  color: rgb(133, 130, 130);
   font-weight: 800;
+  padding-left: 20px;
 }
 .manage div,
 .integrations div {
   display: flex;
   /* align-items: center; */
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: -5px;
+  line-height: 8px;
+}
+.manage p, .integrations p {
+  margin-top: 3px;
 }
 .manage span,
 .integrations span {
@@ -164,22 +172,40 @@ export default {};
 .manage span,
 .integrations p,
 .integrations span {
-  line-height: 18px;
+  
   font-size: 15px;
-  font-weight: 400;
-  color: grey;
+  font-weight: 600;
+  color: rgb(40, 49, 92);
   cursor: pointer;
   /* margin-left: 10px; */
 }
+.manage div:hover, .integrations div:hover {
+  background: #e7e7de;
+  border-radius: 2px;
+  cursor: pointer;
+}
 hr {
-  margin-block: 20px;
+  margin-block: 13px;
 }
 .sidebar .signout__div {
   padding-left: 20px;
   display: flex;
+  font-size: 15px;
 }
 .sidebar .signout__div span {
   margin-right: 10px;
+}
+.sidebar .fa-google {
+  color: #DB4437;
+}
+.sidebar .fa-facebook.square {
+  color: #4267B2;
+}
+.sidebar .fa-twitter {
+  color: #1DA1F2;
+}
+.sidebar .fa-instagram {
+  color: #FD1D1D;
 }
 /* Sidebar main styles */
 
