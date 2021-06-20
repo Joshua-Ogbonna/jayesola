@@ -31,12 +31,12 @@ const routes = [
     component: Login,
   },
   {
-    path: "/dashboard",
+    path: "/dashboard/",
     name: "Dashboard",
     component: Dashboard,
     // Children routes
     children: [
-      { path: "customers", component: Customer },
+      { path: "/", component: Customer },
       { path: "reviews", component: Reviews },
       { path: "pipeline", component: Pipelines },
       { path: "automations", component: Automations },

@@ -15,14 +15,8 @@
       <!-- Manage Section -->
       <div class="manage">
         <h5>Manage</h5>
-        <router-link to="/dashboard">
-          <div>
-            <span><i class="fas fa-landmark"></i></span>
-            <p>Dashboard</p>
-          </div>
-        </router-link>
-
-        <router-link to="/dashboard/customers">
+        
+        <router-link to="/dashboard/">
           <div>
             <span><i class="fas fa-user-friends"></i></span>
             <p>Customers</p>
@@ -233,5 +227,6 @@ hr {
 .main__bar {
   width: 80%;
   height: 100%;
+  padding: 10px 20px;
 }
 </style>
