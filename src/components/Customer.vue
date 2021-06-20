@@ -23,8 +23,8 @@
     <div class="actions__center">
       <h3>Customers</h3>
       <div class="action__buttons">
-        <c-button>Add Customer</c-button>
-        <c-button>Import</c-button>
+        <c-button class="customer">Add Customer</c-button>
+        <c-button class="import">Import</c-button>
       </div>
     </div>
   </div>
@@ -61,10 +61,32 @@ export default {
   .form__search .icons i {
     font-size: 20px;
     margin-left: 40px;
+    cursor: pointer;
     
   }
   .form__search input {
     font-size: 15px;
     padding-left: 40px;
+  }
+  /* Actions center */
+  .actions__center {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    justify-content: space-between;
+  }
+  .actions__center h3 {
+    font-size: 30px;
+    font-weight: 800;
+  }
+  .actions__center .action__buttons .customer {
+    margin-right: 20px;
+    border: none;
+    background: #1DA1F2;
+    color: #fff;
+  }
+  .actions__center .action__buttons .import {
+    border: .04px solid rgb(211, 210, 210);
+    background-color: #fff;
   }
 </style>

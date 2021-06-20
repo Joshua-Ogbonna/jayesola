@@ -166,7 +166,7 @@ export default {};
   display: flex;
   /* align-items: center; */
   padding-left: 20px;
-  padding-top: 10px;
+  padding-top: 12px;
   padding-bottom: -5px;
   line-height: 8px;
 }
