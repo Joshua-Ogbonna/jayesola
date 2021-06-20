@@ -7,7 +7,7 @@
         <div class="card-body">
           <h4>AJ</h4>
           <div class="user__info">
-            <h5>Adekoya Jadeola</h5>
+            <h5>Adekoya Jayeola</h5>
             <p>adekoya*****@cu.edu</p>
           </div>
         </div>
@@ -127,22 +127,22 @@ export default {};
   /* justify-content: space-between; */
 }
 .sidebar .card .card-body h4 {
-  font-size: 20px;
+  font-size: 16px;
   background-color: #ff577f;
   color: #fff;
-  padding: 14px;
+  padding: 10px;
   border-radius: 50%;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 .sidebar .card .card-body .user__info h5 {
   /* line-height: 10px; */
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 15px;
   color: #000;
   font-weight: 800;
 }
 .sidebar .card .card-body .user__info p {
-  font-size: 15px;
+  font-size: 12px;
   line-height: 10px;
   color: grey;
 }

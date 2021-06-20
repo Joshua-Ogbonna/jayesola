@@ -47,7 +47,8 @@
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
-            <td></td>
+            <td>Lead</td>
+            <td>delete </td>
           </tr>
         </tbody>
       </table>
