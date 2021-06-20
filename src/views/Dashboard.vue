@@ -146,12 +146,11 @@ export default {};
   line-height: 10px;
   color: grey;
 }
-.manage,
-.integrations {
+.manage {
   margin-top: 20px;
 }
 .integrations {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .manage h5,
 .integrations h5 {
@@ -227,6 +226,6 @@ hr {
 .main__bar {
   width: 80%;
   height: 100%;
-  padding: 10px 20px;
+  padding: 10px 30px;
 }
 </style>

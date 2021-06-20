@@ -36,7 +36,7 @@ const routes = [
     component: Dashboard,
     // Children routes
     children: [
-      { path: "/", component: Customer },
+      { path: "/dashboard", component: Customer },
       { path: "reviews", component: Reviews },
       { path: "pipeline", component: Pipelines },
       { path: "automations", component: Automations },
