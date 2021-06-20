@@ -15,33 +15,47 @@
       <!-- Manage Section -->
       <div class="manage">
         <h5>Manage</h5>
-        <div>
-          <span><i class="fas fa-landmark"></i></span>
-          <p>Dashboard</p>
-        </div>
-        <div>
-          <span><i class="fas fa-user-friends"></i></span>
-          <p>Customers</p>
-        </div>
-        <div>
-          <span><i class="fas fa-stream"></i></span>
-          <p>Pipeline</p>
-        </div>
+        <router-link to="/dashboard">
+          <div>
+            <span><i class="fas fa-landmark"></i></span>
+            <p>Dashboard</p>
+          </div>
+        </router-link>
 
-        <div>
-          <span><i class="fas fa-chart-line"></i></span>
-          <p>Reporting</p>
-        </div>
+        <router-link to="/dashboard/customers">
+          <div>
+            <span><i class="fas fa-user-friends"></i></span>
+            <p>Customers</p>
+          </div>
+        </router-link>
 
-        <div>
-          <span><i class="fas fa-thumbs-up"></i></span>
-          <p>Reviews</p>
-        </div>
+        <router-link to="/dashboard/pipeline">
+          <div>
+            <span><i class="fas fa-stream"></i></span>
+            <p>Pipeline</p>
+          </div>
+        </router-link>
 
-        <div>
-          <span><i class="fas fa-exchange-alt"></i></span>
-          <p>Automations</p>
-        </div>
+        <router-link to="/dashboard/reporting">
+          <div>
+            <span><i class="fas fa-chart-line"></i></span>
+            <p>Reporting</p>
+          </div>
+        </router-link>
+
+        <router-link to="/dashboard/reviews">
+          <div>
+            <span><i class="fas fa-thumbs-up"></i></span>
+            <p>Reviews</p>
+          </div>
+        </router-link>
+
+        <router-link to="/dashboard/automations">
+          <div>
+            <span><i class="fas fa-exchange-alt"></i></span>
+            <p>Automations</p>
+          </div>
+        </router-link>
       </div>
 
       <!-- Integrations -->
@@ -77,10 +91,13 @@
       <!-- Sign Out Action -->
       <div class="signout__div">
         <span><i class="fas fa-sign-out-alt"></i></span>
-      <p class="sign__out"> Sign Out</p>
+        <p class="sign__out">Sign Out</p>
       </div>
     </div>
-    <div class="main__bar"></div>
+    <div class="main__bar">
+      <!-- Main section routes -->
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -91,7 +108,7 @@ export default {};
 <style scoped>
 .dashboard {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   height: 100%;
 }
 .sidebar {
@@ -137,7 +154,6 @@ export default {};
 }
 .manage,
 .integrations {
-  
   margin-top: 20px;
 }
 .integrations {
@@ -160,7 +176,8 @@ export default {};
   padding-bottom: -5px;
   line-height: 8px;
 }
-.manage p, .integrations p {
+.manage p,
+.integrations p {
   margin-top: 3px;
 }
 .manage span,
@@ -172,14 +189,14 @@ export default {};
 .manage span,
 .integrations p,
 .integrations span {
-  
   font-size: 15px;
   font-weight: 600;
   color: rgb(40, 49, 92);
   cursor: pointer;
   /* margin-left: 10px; */
 }
-.manage div:hover, .integrations div:hover {
+.manage div:hover,
+.integrations div:hover {
   background: #e7e7de;
   border-radius: 2px;
   cursor: pointer;
@@ -196,16 +213,19 @@ hr {
   margin-right: 10px;
 }
 .sidebar .fa-google {
-  color: #DB4437;
+  color: #db4437;
 }
 .sidebar .fa-facebook.square {
-  color: #4267B2;
+  color: #4267b2;
 }
 .sidebar .fa-twitter {
-  color: #1DA1F2;
+  color: #1da1f2;
 }
 .sidebar .fa-instagram {
-  color: #FD1D1D;
+  color: #fd1d1d;
+}
+.sidebar a {
+  text-decoration: none;
 }
 /* Sidebar main styles */
 
