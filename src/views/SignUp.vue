@@ -55,18 +55,18 @@
         <router-link to="/login"><span>Sign in</span></router-link>
       </h5>
     </div>
-    <div class="design">
+    <!-- <div class="design">
       <Auth />
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import Auth from "@/views/Auth";
+// import Auth from "@/views/Auth";
 import { CButton } from "@chakra-ui/vue";
 export default {
   components: {
-    Auth,
+    // Auth,
     CButton,
   },
 };
@@ -75,14 +75,23 @@ export default {
 <style scoped>
 .sign__up {
   display: flex;
+  background-image: url("../assets/images/background2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
 }
 .form__area,
 .design {
   width: 50%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  height: 100vh;
 }
 .form__area {
   padding: 20px 140px;
-  height: 80%;
+  /* height: 80%; */
 }
 .form__area button {
   border-radius: 40px;

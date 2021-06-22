@@ -53,18 +53,18 @@
         <router-link to="/sign-up"><span>Register</span></router-link>
       </h5>
     </div>
-    <div class="design__area">
+    <!-- <div class="design__area">
       <Auth />
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import Auth from "@/views/Auth";
+// import Auth from "@/views/Auth";
 import { CButton } from "@chakra-ui/vue";
 export default {
   components: {
-    Auth,
+    // Auth,
     CButton,
   },
 };
@@ -77,6 +77,7 @@ export default {
 .sign__form,
 .design__area {
   width: 50%;
+  margin: 0 auto;
 }
 .sign__form {
   padding: 20px 140px;
