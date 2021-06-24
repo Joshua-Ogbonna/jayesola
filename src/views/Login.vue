@@ -21,6 +21,7 @@
             id="email"
             class="form-control"
             placeholder="Email address"
+            v-model="user.email"
           />
         </div>
         <div class="form-group">
@@ -31,6 +32,7 @@
             id="password"
             class="form-control"
             placeholder="password"
+            v-model="user.password"
           />
         </div>
 
@@ -41,7 +43,7 @@
           </div>
           <router-link to="/login">Forgot Password?</router-link>
         </div>
-        <c-button size="lg" width="100%" class="lg_button">Login</c-button>
+        <c-button size="lg" width="100%" class="lg_button" @click.prevent="loginUser">Login</c-button>
       </form>
       <!-- End of form -->
       <h5>
@@ -63,6 +65,22 @@ export default {
     // Auth,
     CButton,
   },
+  // Vue data
+  data () {
+    return {
+      user: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+
+  // Vue methods
+  methods: {
+    loginUser () {
+      this.$store.dispatch('LOGIN', this.user)
+    }
+  }
 };
 </script>
 
@@ -140,7 +158,7 @@ form .form-group input {
   border-radius: 40px;
   margin-top: 10px;
   padding: 10px;
-  color: rgb(247, 243, 243);
+  /* color: rgb(247, 243, 243); */
   border: 0.5px solid rgb(247, 243, 243);
   font-size: 15px;
 }
