@@ -1,17 +1,15 @@
 <template>
   <div class="sign__up">
     <div class="form__area">
-      <router-link to="/"><i class="fas fa-link brand"></i></router-link>
-      <h3>Sign Up</h3>
-      <p>See your growth and consulting support 🚀</p>
-      <c-button size="lg" width="100%" class="google__signup"
-        >Sign up with Google</c-button
-      >
-      <hr />
-      <span class="email__span">or sign up with email address</span>
+      <div class="info">
+        <router-link to="/" class="text-center"
+          ><i class="fas fa-link brand"></i
+        ></router-link>
+        <h3>Sign Up</h3>
+        <p>See your growth and consulting support 🚀</p>
+      </div>
 
-      <!-- Form area -->
-      <form class="sign_up">
+      <form class="signup__form">
         <div class="form-group">
           <label for="name" class="form-label">Name</label>
           <input
@@ -20,6 +18,7 @@
             id="name"
             class="form-control"
             placeholder="name"
+            v-model="user.name"
           />
         </div>
         <div class="form-group">
@@ -30,6 +29,7 @@
             id="email"
             class="form-control"
             placeholder="Email address"
+            v-model="user.email"
           />
         </div>
         <div class="form-group">
@@ -40,6 +40,7 @@
             id="password"
             class="form-control"
             placeholder="password"
+            v-model="user.password"
           />
         </div>
 
@@ -47,7 +48,13 @@
           <input type="checkbox" name="terms" id="termsConditions" /> I agree to
           the <router-link to="/terms">terms and conditions</router-link>
         </div>
-        <c-button size="lg" width="100%" class="lg_button">Sign Up</c-button>
+        <c-button
+          size="lg"
+          width="100%"
+          class="lg_button"
+          @click.prevent="signUpUser"
+          >Sign Up</c-button
+        >
       </form>
       <!-- End of form -->
       <h5>
@@ -63,34 +70,57 @@
 
 <script>
 // import Auth from "@/views/Auth";
-import { CButton } from "@chakra-ui/vue";
+import { CButton } from '@chakra-ui/vue';
 export default {
   components: {
     // Auth,
-    CButton,
+    CButton
   },
+  // Vue data
+  data() {
+    return {
+      user: {
+        name: '',
+        email: '',
+        password: ''
+      }
+    };
+  },
+  // Methods
+  methods: {
+    signUpUser() {
+      this.$store
+        .dispatch('SIGNUP', this.user)
+    }
+  }
 };
 </script>
 
 <style scoped>
 .sign__up {
   display: flex;
-  background-image: url("../assets/images/background2.jpg");
+  background-image: url('../assets/images/background2.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
+  padding-top: 40px;
 }
-.form__area,
-.design {
-  width: 50%;
+.signup__form {
+  padding-top: 50px;
+}
+/* .info {
+  text-align: left;
+} */
+.form__area {
+  width: 40%;
   margin: 0 auto;
   background: #fff;
   border-radius: 20px;
-  height: 100vh;
+  height: 90vh;
 }
 .form__area {
-  padding: 20px 140px;
+  padding: 20px 50px;
   /* height: 80%; */
 }
 .form__area button {
@@ -144,13 +174,14 @@ form .form-group input {
   border-radius: 40px;
   margin-top: 10px;
   padding: 10px;
-  color: rgb(247, 243, 243);
+  /* color: rgb(247, 243, 243); */
   border: 0.5px solid rgb(247, 243, 243);
   font-size: 15px;
 }
 form .checkbox {
   margin-bottom: 20px;
   font-size: 15px;
+  margin-top: 20px;
 }
 form .lg_button {
   font-size: 15px;

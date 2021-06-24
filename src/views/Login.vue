@@ -7,12 +7,8 @@
       <h3>Login</h3>
       <p>See your growth and get unlimited support</p>
 
-      <!-- Sig in Alternative button -->
-      <c-button size="lg" width="100%" class="google__signin">Sign in with Google</c-button>
-
-      <hr />
-      <span class="email__span">or sign up with email address</span>
-
+      
+      
       <!-- Form Area -->
       <!-- Form area -->
       <form class="login_up">
@@ -73,16 +69,26 @@ export default {
 <style scoped>
 .login__area {
   display: flex;
-}
-.sign__form,
-.design__area {
-  width: 50%;
-  margin: 0 auto;
+  background-image: url("../assets/images/background2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 40px;
+
 }
 .sign__form {
-  padding: 20px 140px;
-  height: 80%;
+  width: 40%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px 80px;
+  height: 90vh;
+  border-radius: 20px;
 }
+.login_up {
+  margin-top: 70px;
+}
+
 .sign__form button {
   border-radius: 40px;
 }

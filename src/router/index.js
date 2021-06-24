@@ -28,7 +28,7 @@ const routes = [
     name: 'SignUp',
     component: SignUp,
     meta: {
-      guest: true
+      requiresGuest: true
     }
   },
   {
@@ -36,7 +36,7 @@ const routes = [
     name: 'Login',
     component: Login,
     meta: {
-      guest: true
+      requiresGuest: true
     }
   },
   {
@@ -52,7 +52,7 @@ const routes = [
       { path: 'reporting', component: Reporting }
     ],
     meta: {
-      requireLogin: true
+      requireAuth: true
     }
   }
 ];
@@ -64,10 +64,18 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if(to.matched.some(record => record.meta.requireLogin) && !store.state.isAuthenticated) {
-    next('/login')
-  } else {
-    next()
+  if (to.matched.some(record => record.meta.requireAuth)) {
+    if(!store.getters.isLoggedIn) {
+      next('/login')
+    } else {
+      next()
+    }
+  } else if (to.matched.some(record => record.meta.requiresGuest)) {
+    if (store.getters.isLoggedIn) {
+      next('/dashboard')
+    } else {
+      next()
+    }
   }
 })
 
