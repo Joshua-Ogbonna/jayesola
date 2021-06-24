@@ -4,10 +4,12 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 
+
 // Chakra UI Import and usage
 import Chakra, { CThemeProvider } from '@chakra-ui/vue'
 
 Vue.use(Chakra)
+
 
 const token = localStorage.getItem('token')
 if(token) {

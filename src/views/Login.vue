@@ -43,7 +43,10 @@
           </div>
           <router-link to="/login">Forgot Password?</router-link>
         </div>
-        <c-button size="lg" width="100%" class="lg_button" @click.prevent="loginUser">Login</c-button>
+        <c-button size="lg" width="100%" class="lg_button" @click.prevent="loginUser">
+          <span v-if="!isLoading">Login</span>
+          <Loader v-else />
+        </c-button>
       </form>
       <!-- End of form -->
       <h5>
@@ -60,10 +63,13 @@
 <script>
 // import Auth from "@/views/Auth";
 import { CButton } from "@chakra-ui/vue";
+import Loader from '@/components/Loader.vue'
+
 export default {
   components: {
     // Auth,
     CButton,
+    Loader
   },
   // Vue data
   data () {
@@ -71,15 +77,22 @@ export default {
       user: {
         email: '',
         password: ''
-      }
+      },
+      isLoading: false
     }
   },
 
   // Vue methods
   methods: {
-    loginUser () {
-      this.$store.dispatch('LOGIN', this.user)
-    }
+    loginUser() {
+      this.isLoading = true
+      this.$store.dispatch('LOGIN', this.user).then((response) => {
+        if (response.data.success) {
+          this.isLoading = false
+        }
+      }).catch(err => console.log(err))
+    },
+    
   }
 };
 </script>
