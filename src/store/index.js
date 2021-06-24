@@ -41,6 +41,8 @@ export default new Vuex.Store({
     // Logout request
     logout (state) {
       state.token = ''
+      state.user = {},
+      state.isAuthenticated = false
     }
   },
   actions: {
@@ -92,6 +94,9 @@ export default new Vuex.Store({
     // Sign out action
     SIGNOUT ({ commit }) {
       commit('logout')
+      localStorage.removeItem('token')
+      delete axios.defaults.headers.common.Authorization
+      router.push('/login')
     }
   },
   modules: {}

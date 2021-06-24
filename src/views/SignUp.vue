@@ -19,6 +19,7 @@
             class="form-control"
             placeholder="name"
             v-model="user.name"
+            required
           />
         </div>
         <div class="form-group">
@@ -30,6 +31,7 @@
             class="form-control"
             placeholder="Email address"
             v-model="user.email"
+            required
           />
         </div>
         <div class="form-group">
@@ -41,6 +43,7 @@
             class="form-control"
             placeholder="password"
             v-model="user.password"
+            required
           />
         </div>
 

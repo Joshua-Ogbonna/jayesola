@@ -83,7 +83,7 @@
 
       <hr />
       <!-- Sign Out Action -->
-      <div class="signout__div">
+      <div class="signout__div" @click="logout">
         <span><i class="fas fa-sign-out-alt"></i></span>
         <p class="sign__out">Sign Out</p>
       </div>
@@ -96,7 +96,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    logout() {
+      this.$store.dispatch('SIGNOUT')
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -201,6 +207,7 @@ hr {
   padding-left: 20px;
   display: flex;
   font-size: 15px;
+  cursor: pointer;
 }
 .sidebar .signout__div span {
   margin-right: 10px;
