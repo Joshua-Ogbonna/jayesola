@@ -53,7 +53,10 @@
           width="100%"
           class="lg_button"
           @click.prevent="signUpUser"
-          >Sign Up</c-button
+          >
+          <span v-if="!isLoading">Sign Up</span>
+          <Loader v-else />
+          </c-button
         >
       </form>
       <!-- End of form -->
@@ -71,10 +74,13 @@
 <script>
 // import Auth from "@/views/Auth";
 import { CButton } from '@chakra-ui/vue';
+import Loader from '@/components/Loader.vue'
+
 export default {
   components: {
     // Auth,
-    CButton
+    CButton,
+    Loader
   },
   // Vue data
   data() {
@@ -83,14 +89,20 @@ export default {
         name: '',
         email: '',
         password: ''
-      }
+      },
+      isLoading: false
     };
   },
   // Methods
   methods: {
     signUpUser() {
+      this.isLoading = true
       this.$store
-        .dispatch('SIGNUP', this.user)
+        .dispatch('SIGNUP', this.user).then((response) => {
+          if(response.data.success) {
+            this.isLoading = false
+          }
+        }).catch(err => console.log(err))
     }
   }
 };
