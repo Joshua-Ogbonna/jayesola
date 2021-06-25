@@ -90,7 +90,7 @@
     </div>
     <div class="main__bar">
       <!-- Main section routes -->
-      <router-view></router-view>
+      <router-view></router-view> 
     </div>
   </div>
 </template>
