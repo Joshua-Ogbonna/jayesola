@@ -5,17 +5,17 @@
       <!-- User Information -->
       <div class="card">
         <div class="card-body">
-          <h4>AJ</h4>
+          <h4>{{ user.name | initials }}</h4>
           <div class="user__info">
-            <h5>Adekoya Jayeola</h5>
-            <p>adekoya*****@cu.edu</p>
+            <h5>{{ user.name }}</h5>
+            <p>{{ user.email }}</p>
           </div>
         </div>
       </div>
       <!-- Manage Section -->
       <div class="manage">
         <h5>Manage</h5>
-        
+
         <router-link to="/dashboard/">
           <div>
             <span><i class="fas fa-user-friends"></i></span>
@@ -90,18 +90,37 @@
     </div>
     <div class="main__bar">
       <!-- Main section routes -->
-      <router-view></router-view> 
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
+// import { mapGetters } from 'vuex'
 export default {
   methods: {
     logout() {
-      this.$store.dispatch('SIGNOUT')
+      this.$store.dispatch('SIGNOUT');
     },
+    userInitials() {
+      let splitString = this.$store.getters.user.name.split(' ')
+      console.log(this.user)
+      return splitString[0][0] + splitString[1][0]
+    }
   },
+
+  computed: {
+    user() {
+      return this.$store.getters.user;
+    }
+  },
+
+  // Created lifecycle
+  created() {
+    this.$store.dispatch('GETPROFILE');
+    console.log(this.userInitials())
+  },
+
 };
 </script>
 

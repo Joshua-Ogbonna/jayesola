@@ -10,6 +10,11 @@ import Chakra, { CThemeProvider } from '@chakra-ui/vue'
 
 Vue.use(Chakra)
 
+// Vue filters
+Vue.filter('initials', (value) => {
+  let splitValue = value.split(' ')
+  return splitValue[0][0] + splitValue[1][0]
+})
 
 const token = localStorage.getItem('token')
 if(token) {

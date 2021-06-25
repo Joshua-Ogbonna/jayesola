@@ -1,11 +1,11 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import router from '../router'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import router from '../router';
 
 // Import axios
-import axios from 'axios'
+import axios from 'axios';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
@@ -20,84 +20,112 @@ export default new Vuex.Store({
     user: state => state.user
   },
   mutations: {
-    register_request (state) {
-      state.isLoading = true
+    register_request(state) {
+      state.isLoading = true;
     },
-    register_success (state, token, user) {
-      state.token = token
-      state.user = user
-      state.isLoading = false
-      state.isAuthenticated = true
+    register_success(state, token, user) {
+      state.token = token;
+      state.user = user;
+      state.isLoading = false;
+      state.isAuthenticated = true;
     },
     // Login request
-    login_request (state) {
-      state.isLoading = true
+    login_request(state) {
+      state.isLoading = true;
     },
-    login_success (state, token, user) {
-      state.token = token
-      state.user = user
-      state.isLoading = false
+    login_success(state, token, user) {
+      state.token = token;
+      state.user = user;
+      state.isLoading = false;
     },
     // Logout request
-    logout (state) {
-      state.token = ''
-      state.user = {},
-      state.isAuthenticated = false
+    logout(state) {
+      state.token = '';
+      (state.user = {}), (state.isAuthenticated = false);
+    },
+
+    // Profile request
+    profile_request(state) {
+      state.isLoading = true;
+    },
+    // Profile success
+    profile_success(state, user) {
+      state.isLoading = false;
+      state.user = user;
     }
   },
   actions: {
-    SIGNUP ({ commit }, payload) {
-      commit('register_request', true)
+    SIGNUP({ commit }, payload) {
+      commit('register_request', true);
       axios
         .post('https://frozen-refuge-45677.herokuapp.com/api/signup', payload)
         .then(response => {
           if (response.data.success) {
             // router.push('/dashboard')
-            const token = response.data.token
-            const user = response.data.user
+            const token = response.data.token;
+            const user = response.data.user;
             // Set token to localStorage
-            localStorage.setItem('token', token)
+            localStorage.setItem('token', token);
             // Set axios headers
-            axios.defaults.headers.common.Authorization = token
+            axios.defaults.headers.common.Authorization = token;
 
-            commit('register_success', token, user)
-            router.push('/dashboard')
+            commit('register_success', token, user);
+            router.push('/dashboard');
           }
-          console.log(response)
+          console.log(response);
         })
         .catch(err => {
-          console.log(err)
-        })
+          console.log(err);
+        });
     },
 
     // Login Action
-    async LOGIN ({ commit }, payload) {
-      commit('login_request')
+    async LOGIN({ commit }, payload) {
+      commit('login_request');
 
-      await axios.post('https://frozen-refuge-45677.herokuapp.com/api/login', payload).then(response => {
-        if (response.data.success) {
-          const token = response.data.token
-          const user = response.data.user
+      await axios
+        .post('https://frozen-refuge-45677.herokuapp.com/api/login', payload)
+        .then(response => {
+          if (response.data.success) {
+            const token = response.data.token;
+            const user = response.data.user;
 
-          // Set localstorage token
-          localStorage.setItem('token', token)
-          // Set axios headers
-          axios.defaults.headers.common.Authorization = token
+            // Set localstorage token
+            localStorage.setItem('token', token);
+            // Set axios headers
+            axios.defaults.headers.common.Authorization = token;
 
-          // Commit response login
-          commit('login_success', token, user)
-          router.push('/dashboard')
-        }
-      }).catch(err => console.log(err.message))
+            // Commit response login
+            commit('login_success', token, user);
+            router.push('/dashboard');
+          }
+        })
+        .catch(err => console.log(err.message));
     },
 
     // Sign out action
-    SIGNOUT ({ commit }) {
-      commit('logout')
-      localStorage.removeItem('token')
-      delete axios.defaults.headers.common.Authorization
-      router.push('/login')
+    SIGNOUT({ commit }) {
+      commit('logout');
+      localStorage.removeItem('token');
+      delete axios.defaults.headers.common.Authorization;
+      router.push('/login');
+    },
+
+    // Get user profile
+    GETPROFILE({ commit }) {
+      commit('profile_request');
+      axios
+        .get('https://frozen-refuge-45677.herokuapp.com/api/profile', {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+          }
+        })
+        .then(response => {
+          // console.log(response);
+          const user = response.data.user;
+          commit('profile_success', user);
+        });
     }
   },
   modules: {}
-})
+});
