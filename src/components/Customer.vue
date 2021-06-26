@@ -172,7 +172,7 @@ tbody {
   font-weight: 600;
 }
 tbody tr {
-  line-height: 30px;
+  line-height: 40px;
 }
 tbody .lead_email {
   font-size: 13px;
@@ -181,7 +181,7 @@ tbody .lead_email {
 }
 tbody .actions span {
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 4px;
   padding: 2px 10px;
   color: white;
   font-size: 10px;

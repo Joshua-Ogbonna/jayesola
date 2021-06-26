@@ -63,6 +63,13 @@ export default new Vuex.Store({
     lead_success (state, leads) {
       state.isLoading = false
       state.leads = leads
+    },
+    // Post lead request
+    postLead_request (state) {
+      state.isLoading = true
+    },
+    postLead_success (state) {
+      state.isLoading = false
     }
   },
   actions: {
@@ -145,6 +152,21 @@ export default new Vuex.Store({
         
         const leads = response.data.leads.leads
         commit('lead_success', leads)
+      })
+    },
+
+    // Post a Lead
+    async POSTLEAD ({ commit }, payload) {
+      commit('postLead_request')
+      await axios.post('https://frozen-refuge-45677.herokuapp.com/api/create', payload, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      }).then(response => {
+        if (response.data.success) {
+          router.push('/dashboard')
+          commit('postLead_success')
+        }
       })
     }
   },
