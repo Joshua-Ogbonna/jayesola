@@ -14,6 +14,7 @@ import Automations from '@/components/Automations'
 import Pipelines from '@/components/Pipelines'
 import Reviews from '@/components/Reviews'
 import Reporting from '@/components/Reporting'
+import NewLead from '@/components/NewLead'
 
 Vue.use(VueRouter)
 
@@ -52,7 +53,8 @@ const routes = [
       { path: 'reviews', component: Reviews },
       { path: 'pipeline', component: Pipelines },
       { path: 'automations', component: Automations },
-      { path: 'reporting', component: Reporting }
+      { path: 'reporting', component: Reporting },
+      { path: 'newlead', component: NewLead }
     ],
     meta: {
       requireAuth: true
