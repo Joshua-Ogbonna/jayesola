@@ -9,8 +9,8 @@ import Login from '@/views/Login'
 import Dashboard from '@/views/Dashboard'
 
 // Dashboard child routes components
-import Customer from '@/components/Customer'
-import Automations from '@/components/Automations'
+import Leads from '@/components/Leads'
+import Clients from '@/components/Clients'
 import Pipelines from '@/components/Pipelines'
 import Reviews from '@/components/Reviews'
 import Reporting from '@/components/Reporting'
@@ -49,10 +49,10 @@ const routes = [
     component: Dashboard,
     // Children routes
     children: [
-      { path: '/dashboard', component: Customer },
+      { path: '/dashboard', component: Leads },
       { path: 'reviews', component: Reviews },
       { path: 'pipeline', component: Pipelines },
-      { path: 'automations', component: Automations },
+      { path: 'clients', component: Clients },
       { path: 'reporting', component: Reporting },
       { path: 'newlead', component: NewLead }
     ],

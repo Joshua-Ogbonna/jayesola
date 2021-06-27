@@ -19,9 +19,17 @@
         <router-link to="/dashboard/">
           <div>
             <span><i class="fas fa-user-friends"></i></span>
-            <p>Customers</p>
+            <p> Leads </p>
           </div>
         </router-link>
+
+        <router-link to="/dashboard/clients">
+          <div>
+            <span><i class="fas fa-stream"></i></span>
+            <p>Clients</p>
+          </div>
+        </router-link>
+
 
         <router-link to="/dashboard/pipeline">
           <div>
@@ -41,13 +49,6 @@
           <div>
             <span><i class="fas fa-thumbs-up"></i></span>
             <p>Reviews</p>
-          </div>
-        </router-link>
-
-        <router-link to="/dashboard/automations">
-          <div>
-            <span><i class="fas fa-exchange-alt"></i></span>
-            <p>Automations</p>
           </div>
         </router-link>
       </div>

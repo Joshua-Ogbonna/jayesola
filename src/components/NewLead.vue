@@ -132,8 +132,8 @@ export default {
         email: '',
         phone: '',
         company: '',
-        confidence: '',
-        estimatedValue: '',
+        confidence: 0,
+        estimatedValue: 0,
         status: '',
         priority: ''
       },
