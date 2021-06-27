@@ -38,7 +38,7 @@
     <!-- Lead Tables -->
     
     <!-- If leads.length < 0 -->
-    <div v-if="leads.length < 0">
+    <div v-if="leads.length === 0">
       <h4 class="text-center">You do not have any leads yet</h4>
     </div>
   </div>
