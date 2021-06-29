@@ -56,7 +56,11 @@
             <td>{{ client.email }}</td>
             <td>{{ client.phone }}</td>
             <td>{{ client.website }}</td>
-            <td class="actions"><span class="edit_button">details</span></td>
+            <td class="actions">
+              <router-link :to=" '/client/' + client._id ">
+                <span class="edit_button">details</span>
+              </router-link>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -190,5 +194,8 @@ tbody .actions .edit_button {
   background: #ff577f;
   margin-right: 10px;
   font-size: 10px;
+}
+table a {
+  text-decoration: none;
 }
 </style>

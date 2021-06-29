@@ -26,15 +26,7 @@
         <router-link to="/dashboard/clients">
           <div>
             <span><i class="fas fa-stream"></i></span>
-            <p>Clients</p>
-          </div>
-        </router-link>
-
-
-        <router-link to="/dashboard/pipeline">
-          <div>
-            <span><i class="fas fa-stream"></i></span>
-            <p>Pipeline</p>
+            <p>Contacts</p>
           </div>
         </router-link>
 
@@ -48,13 +40,13 @@
         <router-link to="/dashboard/reviews">
           <div>
             <span><i class="fas fa-thumbs-up"></i></span>
-            <p>Reviews</p>
+            <p>Settings</p>
           </div>
         </router-link>
       </div>
 
       <!-- Integrations -->
-      <div class="integrations">
+      <!-- <div class="integrations">
         <h5>Integrations</h5>
         <div>
           <span><i class="fab fa-google"></i></span>
@@ -80,7 +72,7 @@
           <span><i class="fab fa-yahoo"></i></span>
           <p>Yahoo Mail</p>
         </div>
-      </div>
+      </div> -->
 
       <hr />
       <!-- Sign Out Action -->
@@ -134,7 +126,7 @@ export default {
 .sidebar {
   background: #f4f9f9;
   width: 20%;
-  height: 100%;
+  height: 100vh;
   padding-top: 10px;
 }
 .sidebar .brand {
@@ -173,7 +165,7 @@ export default {
   color: grey;
 }
 .manage {
-  margin-top: 20px;
+  margin-top: 70px;
 }
 .integrations {
   margin-top: 30px;
@@ -186,18 +178,16 @@ export default {
   font-weight: 800;
   padding-left: 20px;
 }
-.manage div,
-.integrations div {
+.manage div {
   display: flex;
   /* align-items: center; */
   padding-left: 20px;
-  padding-top: 12px;
+  padding-top: 20px;
   padding-bottom: -5px;
-  line-height: 8px;
+  line-height: 20px;
 }
-.manage p,
-.integrations p {
-  margin-top: 3px;
+.manage p {
+  margin-top: 1px;
 }
 .manage span,
 .integrations span {
@@ -221,13 +211,15 @@ export default {
   cursor: pointer;
 }
 hr {
-  margin-block: 13px;
+  margin-top: 100px;
+  margin-bottom: 30px;
 }
 .sidebar .signout__div {
   padding-left: 20px;
   display: flex;
   font-size: 15px;
   cursor: pointer;
+  /* padding-top: 30px; */
 }
 .sidebar .signout__div span {
   margin-right: 10px;

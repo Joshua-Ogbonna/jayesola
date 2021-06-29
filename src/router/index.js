@@ -16,6 +16,7 @@ import Reviews from '@/components/Reviews'
 import Reporting from '@/components/Reporting'
 import NewLead from '@/components/NewLead'
 import NewClient from '@/components/NewClient'
+import Client from '@/components/Client'
 
 Vue.use(VueRouter)
 
@@ -58,6 +59,13 @@ const routes = [
       { path: 'newlead', component: NewLead },
       { path: 'clients/new-client', component: NewClient }
     ],
+    meta: {
+      requireAuth: true
+    }
+  },
+  {
+    path: '/client/:id',
+    component: Client,
     meta: {
       requireAuth: true
     }
