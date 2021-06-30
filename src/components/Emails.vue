@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Reviews here</h1>
+    <h1>Emails  here</h1>
   </div>
 </template>
 

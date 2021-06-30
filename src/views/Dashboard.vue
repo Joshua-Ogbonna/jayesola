@@ -133,6 +133,7 @@ export default {
   margin-bottom: 10px;
   font-size: 20px;
   margin-left: 20px;
+  color: rgb(40, 49, 92);
 }
 .sidebar .card {
   margin-inline: 20px;

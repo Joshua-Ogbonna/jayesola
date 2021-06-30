@@ -137,7 +137,7 @@ export default {
 .actions__center .action__buttons .customer {
   margin-right: 20px;
   border: none;
-  background: #1da1f2;
+  background: rgb(40, 49, 92);
   color: #fff;
 }
 .actions__center .action__buttons .import {

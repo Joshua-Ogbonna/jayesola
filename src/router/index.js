@@ -11,12 +11,16 @@ import Dashboard from '@/views/Dashboard'
 // Dashboard child routes components
 import Leads from '@/components/Leads'
 import Clients from '@/components/Clients'
-import Pipelines from '@/components/Pipelines'
-import Reviews from '@/components/Reviews'
 import Reporting from '@/components/Reporting'
 import NewLead from '@/components/NewLead'
 import NewClient from '@/components/NewClient'
 import Client from '@/components/Client'
+
+// Client Children routes components
+import Notes from '@/components/Notes'
+import Emails from '@/components/Emails'
+import Calls from '@/components/Calls'
+import Tasks from '@/components/Tasks'
 
 Vue.use(VueRouter)
 
@@ -52,8 +56,6 @@ const routes = [
     // Children routes
     children: [
       { path: '/dashboard', component: Leads },
-      { path: 'reviews', component: Reviews },
-      { path: 'pipeline', component: Pipelines },
       { path: 'clients', component: Clients },
       { path: 'reporting', component: Reporting },
       { path: 'newlead', component: NewLead },
@@ -68,7 +70,29 @@ const routes = [
     component: Client,
     meta: {
       requireAuth: true
-    }
+    },
+    children: [
+      {
+        path: 'notes',
+        component: Notes,
+        name: 'Notes'
+      },
+      {
+        path: 'emails',
+        component: Emails,
+        name: 'Emails'
+      },
+      {
+        path: 'calls',
+        component: Calls,
+        name: 'Calls'
+      },
+      {
+        path: 'tasks',
+        component: Tasks,
+        name: 'Tasks'
+      }
+    ]
   }
 ]
 
