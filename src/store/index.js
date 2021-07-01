@@ -15,6 +15,7 @@ export default new Vuex.Store({
     user: {},
     leads: [],
     clients: []
+    // notes: []
   },
   getters: {
     isLoggedIn: state => !!state.token,
@@ -78,8 +79,8 @@ export default new Vuex.Store({
       state.isLoading = true
     },
     // Client success
-    client_success (state, payload) {
-      state.clients = payload
+    client_success (state, clients) {
+      state.clients = clients
       state.isLoading = false
     },
     // Client post request
@@ -205,6 +206,7 @@ export default new Vuex.Store({
         .then(response => {
           // console.log(response.data.clients.clients)
           const clients = response.data.clients.clients
+          
           commit('client_success', clients)
         })
     },

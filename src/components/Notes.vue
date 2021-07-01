@@ -11,7 +11,15 @@
       </button>
     </section>
 
-    <section class="if__note">
+    <div class="notes" v-for="note in data" :key="note._id">
+      <div class="card">
+        <div class="card-body">
+          {{ note.body }}
+        </div>
+      </div>
+    </div>
+
+    <section class="if__note" v-if="data.length === 0">
       <p>Take notes about this record to keep track of important info.</p>
     </section>
 
@@ -63,7 +71,30 @@
 </template>
 
 <script>
-export default {};
+import axios from 'axios'
+export default {
+  data () {
+    return {
+      data: ''
+    }
+  },
+  mounted () {
+    console.log(this.$route.params.id)
+    this.getClient()
+  },
+  methods: {
+    async getClient() {
+      await axios
+        .get('https://frozen-refuge-45677.herokuapp.com/api/client/' + this.$route.params.id)
+        .then(response => {
+          this.data = response.data.data.notes;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -88,11 +119,11 @@ export default {};
   box-shadow: none;
 }
 .form-control:focus {
-    color: #212529;
-    background-color: #fff;
-    border-color: #000;
-    outline: 0;
-    box-shadow: none;
+  color: #212529;
+  background-color: #fff;
+  border-color: #000;
+  outline: 0;
+  box-shadow: none;
 }
 .note__modal .submit {
   background: rgb(30, 37, 75);
