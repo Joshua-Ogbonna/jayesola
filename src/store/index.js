@@ -14,15 +14,16 @@ export default new Vuex.Store({
     token: localStorage.getItem('token') || '',
     user: {},
     leads: [],
-    clients: []
-    // notes: []
+    clients: [],
+    notes: []
   },
   getters: {
     isLoggedIn: state => !!state.token,
     authState: state => state.isAuthenticated,
     user: state => state.user,
     leads: state => state.leads.reverse(),
-    clients: state => state.clients.reverse()
+    clients: state => state.clients.reverse(),
+    notes: state => state.notes.reverse()
   },
   mutations: {
     register_request (state) {
@@ -45,8 +46,7 @@ export default new Vuex.Store({
     },
     // Logout request
     logout (state) {
-      state.token = '';
-      (state.user = {}), (state.isAuthenticated = false)
+      (state.token = ''), (state.user = {}), (state.isAuthenticated = false)
     },
 
     // Profile request
@@ -89,6 +89,14 @@ export default new Vuex.Store({
     },
     postClient_success (state) {
       state.isLoading = false
+    },
+    // Note request
+    note_request (state) {
+      state.isLoading = true
+    },
+    note_success (state, notes) {
+      state.isLoading = false
+      state.notes = notes
     }
   },
   actions: {
@@ -206,7 +214,7 @@ export default new Vuex.Store({
         .then(response => {
           // console.log(response.data.clients.clients)
           const clients = response.data.clients.clients
-          
+
           commit('client_success', clients)
         })
     },
@@ -214,18 +222,37 @@ export default new Vuex.Store({
     // Post Clients
     async POSTCLIENTS ({ commit }, payload) {
       commit('postClient_request')
-      await axios.post('https://frozen-refuge-45677.herokuapp.com/api/client', payload, {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token')
-        }
-      }).then((response) => {
-        if (response.data.success) {
-          router.push('/dashboard/clients')
-          commit('postClient_success')
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      await axios
+        .post('https://frozen-refuge-45677.herokuapp.com/api/client', payload, {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+          }
+        })
+        .then(response => {
+          if (response.data.success) {
+            router.push('/dashboard/clients')
+            commit('postClient_success')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+
+    // Get Client note
+    async getNote ({ commit }, id) {
+      commit('note_request')
+      await axios
+        .get('https://frozen-refuge-45677.herokuapp.com/api/client/' + id)
+        .then(response => {
+          if (response.data.success) {
+            const notes = response.data.data.notes
+            commit('note_success', notes)
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   },
   modules: {}
