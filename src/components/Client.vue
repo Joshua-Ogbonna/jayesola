@@ -93,6 +93,7 @@ export default {
         .get('https://frozen-refuge-45677.herokuapp.com/api/client/' + this.id)
         .then(response => {
           this.data = response.data.data;
+          localStorage.setItem('client', JSON.stringify(response.data.data))
         })
         .catch(err => {
           console.log(err);

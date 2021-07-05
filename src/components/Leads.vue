@@ -60,6 +60,7 @@ export default {
 
   created() {
     this.$store.dispatch('GETLEAD');
+    
   },
   computed: {
     leads() {

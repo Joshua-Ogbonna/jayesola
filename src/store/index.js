@@ -66,6 +66,7 @@ export default new Vuex.Store({
     lead_success (state, leads) {
       state.isLoading = false
       state.leads = leads
+      localStorage.setItem('leads', leads)
     },
     // Post lead request
     postLead_request (state) {
@@ -183,6 +184,7 @@ export default new Vuex.Store({
         .then(response => {
           const leads = response.data.leads.leads
           commit('lead_success', leads)
+          localStorage.setItem('leads', JSON.stringify(leads))
         })
     },
 
