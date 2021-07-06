@@ -21,6 +21,7 @@ import Notes from '@/components/Notes'
 import Emails from '@/components/Emails'
 import Calls from '@/components/Calls'
 import Tasks from '@/components/Tasks'
+import NewTask from '@/components/NewTask'
 
 Vue.use(VueRouter)
 
@@ -28,10 +29,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
-    meta: {
-      requiresGuest: true
-    }
+    component: Home
   },
   {
     path: '/sign-up',
@@ -91,6 +89,11 @@ const routes = [
         path: 'tasks',
         component: Tasks,
         name: 'Tasks'
+      },
+      {
+        path: '/new-task',
+        component: NewTask,
+        name: 'New Task'
       }
     ]
   }
@@ -115,6 +118,8 @@ router.beforeEach((to, from, next) => {
     } else {
       next()
     }
+  } else {
+    next()
   }
 })
 

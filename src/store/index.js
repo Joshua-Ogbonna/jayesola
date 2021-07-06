@@ -4,6 +4,13 @@ import router from '../router'
 
 // Import axios
 import axios from 'axios'
+// Import vuexpersist
+import VuexPersist from 'vuex-persist'
+
+const vuexLocalStorage = new VuexPersist({
+  key: 'vuex',
+  storage: window.localStorage
+})
 
 Vue.use(Vuex)
 
@@ -15,7 +22,8 @@ export default new Vuex.Store({
     user: {},
     leads: [],
     clients: [],
-    notes: []
+    notes: [],
+    tasks: []
   },
   getters: {
     isLoggedIn: state => !!state.token,
@@ -23,7 +31,8 @@ export default new Vuex.Store({
     user: state => state.user,
     leads: state => state.leads.reverse(),
     clients: state => state.clients.reverse(),
-    notes: state => state.notes.reverse()
+    notes: state => state.notes.reverse(),
+    tasks: state => state.tasks.reverse()
   },
   mutations: {
     register_request (state) {
@@ -95,9 +104,17 @@ export default new Vuex.Store({
     note_request (state) {
       state.isLoading = true
     },
-    note_success (state, notes) {
+    note_success (state, notes ) {
       state.isLoading = false
       state.notes = notes
+    },
+    // Task request
+    task_request(state) {
+      state.isLoading = true
+    },
+    task_success(state, tasks) {
+      state.isLoading = false
+      state.tasks = tasks
     }
   },
   actions: {
@@ -184,7 +201,6 @@ export default new Vuex.Store({
         .then(response => {
           const leads = response.data.leads.leads
           commit('lead_success', leads)
-          localStorage.setItem('leads', JSON.stringify(leads))
         })
     },
 
@@ -255,7 +271,24 @@ export default new Vuex.Store({
         .catch(err => {
           console.log(err)
         })
+    },
+
+    // Get client tasks
+    async getTasks ( { commit }, id) {
+      commit('task_request')
+      await axios
+        .get('https://frozen-refuge-45677.herokuapp.com/api/client/' + id)
+        .then(response => {
+          if (response.data.success) {
+            const tasks = response.data.data.tasks
+            commit('task_success', tasks)
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   },
-  modules: {}
+  modules: {},
+  plugins: [vuexLocalStorage.plugin]
 })
