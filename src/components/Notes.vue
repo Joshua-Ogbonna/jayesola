@@ -101,7 +101,6 @@ export default {
         .then(response => {
           if (response.data.success) {
             this.$store.dispatch('getNote', this.$route.params.id);
-            console.log(response.data.data)
           }
         })
         .catch(err => {

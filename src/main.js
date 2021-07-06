@@ -19,6 +19,11 @@ Vue.filter('secondChar', (value) => {
   return splitValue[1][0]
 })
 
+Vue.filter('twoNames', (value) => {
+  const splitValue = value.split(' ')
+  return splitValue[0] + ' ' + splitValue[1]
+})
+
 const token = localStorage.getItem('token')
 if (token) {
   axios.defaults.headers.common.Authorization = token

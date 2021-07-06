@@ -109,7 +109,7 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save Task</button>
+            <button type="button" class="btn btn-primary" @click="addTask" data-bs-dismiss="modal">Save Task</button>
           </div>
         </div>
       </div>
@@ -118,6 +118,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -127,14 +129,27 @@ export default {
         body: '',
         category: '',
         priority: '',
-        assignedTo: '',
+        assignedTo: {},
         dueDate: ''
       }
     };
   },
   methods: {
-    addTask () {
-      
+    async addTask () {
+      await axios
+        .put(
+          'https://frozen-refuge-45677.herokuapp.com/api/task/' +
+            this.$route.params.id,
+          this.task
+        )
+        .then(response => {
+          if (response.data.success) {
+            this.$store.dispatch('getTasks', this.$route.params.id);
+          }
+        })
+        .catch(err => {
+          console.log(err.message);
+        });
     }
   },
   mounted() {

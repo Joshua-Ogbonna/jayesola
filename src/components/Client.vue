@@ -12,7 +12,7 @@
             <h5>{{ data.name | secondChar }}</h5>
           </element>
           <div class="inside__nameEmail">
-            <h5>{{ data.name }}</h5>
+            <h5>{{ data.name | twoNames }}</h5>
             <p>{{ data.email }}</p>
           </div>
         </div>
