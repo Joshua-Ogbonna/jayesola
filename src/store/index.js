@@ -75,7 +75,6 @@ export default new Vuex.Store({
     lead_success (state, leads) {
       state.isLoading = false
       state.leads = leads
-      localStorage.setItem('leads', leads)
     },
     // Post lead request
     postLead_request (state) {
@@ -109,10 +108,10 @@ export default new Vuex.Store({
       state.notes = notes
     },
     // Task request
-    task_request(state) {
+    task_request (state) {
       state.isLoading = true
     },
-    task_success(state, tasks) {
+    task_success (state, tasks) {
       state.isLoading = false
       state.tasks = tasks
     }

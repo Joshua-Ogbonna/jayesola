@@ -11,8 +11,27 @@
           v-for="task in this.$store.getters.tasks"
           :key="task._id"
         >
-          <div class="card shadow p-3 mb-3 bg-body rounded">
-            <div class="card-body">This is some text within a card body.</div>
+          <div class="card shadow mb-3 bg-body rounded">
+              <div class="card-header">
+                <div class="title_action">
+                  <h5> {{ task.title }} </h5>
+                  <span><i class="far fa-trash-alt"></i></span>
+                </div>
+                <div class="task__details">
+                  <div>
+                    <p>due by: {{ task.dueDate}} </p>
+                    <p>assigned to: {{task.assignedTo.name }} </p>
+                  </div>
+                  
+                </div>
+              </div>
+            <div class="card-body">
+              <p> {{ task.body }} </p>
+              <div class="determinant">
+                <p>priority: {{ task.priority }} </p>
+                <p>category: {{ task.category }} </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -174,5 +193,40 @@ button {
 .no_task p {
   font-size: 12px;
   text-align: center;
+}
+.title_action {
+  display: flex;
+  justify-content: space-between;
+}
+.task__details div  {
+  line-height: 1px;
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+.task__details div p {
+  color: gray;
+  font-size: 12px;
+}
+.determinant {
+  display: flex;
+  margin-top: 20px;
+}
+.determinant p {
+  margin-right: 20px;
+  line-height: 1px;
+  color: gray;
+  font-size: 12px;
+}
+.card-body p {
+  font-size: 15px;
+}
+.card-header {
+  background-color: #fff;
+}
+.card-header h5 {
+  font-size: 18px;
+  font-weight: 800;
+  color: rgb(40, 49, 92);
 }
 </style>
