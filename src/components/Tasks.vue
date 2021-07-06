@@ -4,7 +4,7 @@
       Add Task
     </button>
 
-    <div class="tasks">
+    <div class="tasks" v-if="this.$store.getters.tasks.length > 0">
       <div class="row">
         <div
           class="col-lg-6"
@@ -16,6 +16,11 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- if no task -->
+    <div class="no_task" v-else>
+      <p>Create a task for yourself or a teammate. Keep track of all your to-dos for this record.</p>
     </div>
 
     <!-- Modal -->
@@ -128,7 +133,7 @@ export default {
     };
   },
   methods: {
-    name () {
+    addTask () {
       
     }
   },
@@ -150,5 +155,9 @@ button {
 }
 .tasks .card {
   border: none;
+}
+.no_task p {
+  font-size: 12px;
+  text-align: center;
 }
 </style>
