@@ -6,8 +6,14 @@ import axios from 'axios'
 
 // Chakra UI Import and usage
 import Chakra, { CThemeProvider } from '@chakra-ui/vue'
+// Import Bootstrap Vue
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+// BV Styles
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(Chakra)
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 
 // Vue filters
 Vue.filter('initials', (value) => {

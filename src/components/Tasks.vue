@@ -3,44 +3,48 @@
     <button data-bs-toggle="modal" data-bs-target="#exampleModal">
       Add Task
     </button>
-
-    <div class="tasks" v-if="this.$store.getters.tasks.length > 0">
-      <div class="row">
-        <div
-          class="col-lg-6"
-          v-for="task in this.$store.getters.tasks"
-          :key="task._id"
-        >
-          <div class="card shadow mb-3 bg-body rounded">
+    <b-overlay :show="show" rounded="sm">
+      <div class="tasks" v-if="this.$store.getters.tasks.length > 0" :aria-hidden="show ? 'true' : null">
+        <div class="row">
+          <div
+            class="col-lg-6"
+            v-for="task in this.$store.getters.tasks"
+            :key="task._id"
+          >
+            <div class="card shadow mb-3 bg-body rounded">
               <div class="card-header">
                 <div class="title_action">
-                  <h5> {{ task.title }} </h5>
-                  <span><i class="far fa-trash-alt"></i></span>
+                  <h5>{{ task.title }}</h5>
+                  <span @click="deleteTask(task._id)"
+                    ><i class="far fa-trash-alt"></i
+                  ></span>
                 </div>
                 <div class="task__details">
                   <div>
-                    <p>due by: {{ task.dueDate}} </p>
-                    <p>assigned to: {{task.assignedTo.name }} </p>
+                    <p>due by: {{ task.dueDate }}</p>
+                    <p>assigned to: {{ task.assignedTo.name }}</p>
                   </div>
-                  
                 </div>
               </div>
-            <div class="card-body">
-              <p> {{ task.body }} </p>
-              <div class="determinant">
-                <p>priority: {{ task.priority }} </p>
-                <p>category: {{ task.category }} </p>
+              <div class="card-body">
+                <p>{{ task.body }}</p>
+                <div class="determinant">
+                  <p>priority: {{ task.priority }}</p>
+                  <p>category: {{ task.category }}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- if no task -->
-    <div class="no_task" v-else>
-      <p>Create a task for yourself or a teammate. Keep track of all your to-dos for this record.</p>
-    </div>
+      <!-- if no task -->
+      <div class="no_task" v-else>
+        <p>
+          Create a task for yourself or a teammate. Keep track of all your
+          to-dos for this record.
+        </p>
+      </div>
+    </b-overlay>
 
     <!-- Modal -->
     <div
@@ -81,7 +85,11 @@
                 <div class="row">
                   <div class="col-lg-6">
                     <label for="category" class="form-label">Category</label>
-                    <select name="category" class="form-select" v-model="task.category">
+                    <select
+                      name="category"
+                      class="form-select"
+                      v-model="task.category"
+                    >
                       <option value="todo">To-do</option>
                       <option value="call">Value</option>
                       <option value="email">Email</option>
@@ -89,7 +97,11 @@
                   </div>
                   <div class="col-lg-6">
                     <label for="priority" class="form-label">Priority</label>
-                    <select name="priority" class="form-select" v-model="task.priority">
+                    <select
+                      name="priority"
+                      class="form-select"
+                      v-model="task.priority"
+                    >
                       <option value="low">Low</option>
                       <option value="high">High</option>
                     </select>
@@ -102,7 +114,11 @@
                     <label for="assignedto" class="form-label"
                       >Assigned To</label
                     >
-                    <select name="assignedto" class="form-select" v-model="task.assignedTo">
+                    <select
+                      name="assignedto"
+                      class="form-select"
+                      v-model="task.assignedTo"
+                    >
                       <option
                         v-for="lead in this.leads.leads"
                         :key="lead._id"
@@ -114,7 +130,12 @@
                   </div>
                   <div class="col-lg-6">
                     <label for="dueDate" class="form-label">Due Date</label>
-                    <input type="datetime-local" name="dueDate" class="form-control" v-model="task.dueDate">
+                    <input
+                      type="datetime-local"
+                      name="dueDate"
+                      class="form-control"
+                      v-model="task.dueDate"
+                    />
                   </div>
                 </div>
               </div>
@@ -128,7 +149,14 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary" @click="addTask" data-bs-dismiss="modal">Save Task</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="addTask"
+              data-bs-dismiss="modal"
+            >
+              Save Task
+            </button>
           </div>
         </div>
       </div>
@@ -137,7 +165,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   data() {
@@ -149,27 +177,49 @@ export default {
         category: '',
         priority: '',
         assignedTo: {},
-        dueDate: ''
-      }
+        dueDate: '',
+      },
+      show: false
     };
   },
   methods: {
-    async addTask () {
+    async addTask() {
+      this.show = true
       await axios
         .put(
           'https://frozen-refuge-45677.herokuapp.com/api/task/' +
             this.$route.params.id,
           this.task
         )
-        .then(response => {
+        .then((response) => {
           if (response.data.success) {
             this.$store.dispatch('getTasks', this.$route.params.id);
+            this.show = false
           }
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err.message);
         });
-    }
+    },
+    async deleteTask(id) {
+      this.show = true
+      await axios
+        .delete(
+          'https://frozen-refuge-45677.herokuapp.com/api/task/' +
+            this.$route.params.id +
+            '/' +
+            id
+        )
+        .then((response) => {
+          if (response.data.success) {
+            this.$store.dispatch('getTasks', this.$route.params.id);
+            this.show = false
+          }
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    },
   },
   mounted() {
     this.$store.dispatch('getTasks', this.$route.params.id);
@@ -185,7 +235,7 @@ button {
   border: none;
   padding: 10px 30px;
   border-radius: 3px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 .tasks .card {
   border: none;
@@ -198,7 +248,7 @@ button {
   display: flex;
   justify-content: space-between;
 }
-.task__details div  {
+.task__details div {
   line-height: 1px;
   display: flex;
   margin-top: 20px;
@@ -207,6 +257,24 @@ button {
 .task__details div p {
   color: gray;
   font-size: 12px;
+}
+.tasks {
+  overflow: scroll;
+  height: 70vh;
+  overflow-x: hidden;
+}
+.tasks::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+.tasks::-webkit-scrollbar-track {
+  background: #fff; /* color of the tracking area */
+}
+
+.tasks::-webkit-scrollbar-thumb {
+  background-color: rgb(40, 49, 92); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid #fff; /* creates padding around scroll thumb */
 }
 .determinant {
   display: flex;
@@ -228,5 +296,8 @@ button {
   font-size: 18px;
   font-weight: 800;
   color: rgb(40, 49, 92);
+}
+.title_action span i {
+  cursor: pointer;
 }
 </style>
