@@ -15,6 +15,7 @@ import Reporting from '@/components/Reporting'
 import NewLead from '@/components/NewLead'
 import NewClient from '@/components/NewClient'
 import Client from '@/components/Client'
+import Settings from '@/components/Settings'
 
 // Client Children routes components
 import Notes from '@/components/Notes'
@@ -57,7 +58,8 @@ const routes = [
       { path: 'clients', component: Clients },
       { path: 'reporting', component: Reporting },
       { path: 'newlead', component: NewLead },
-      { path: 'clients/new-client', component: NewClient }
+      { path: 'clients/new-client', component: NewClient },
+      { path: 'settings', component: Settings }
     ],
     meta: {
       requireAuth: true

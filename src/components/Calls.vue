@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Calls Here</h1>
+        <p class="mt-5 text-center">Calls are not enabled at the moment 😞</p>
     </div>
 </template>
 

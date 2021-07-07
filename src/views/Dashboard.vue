@@ -37,7 +37,7 @@
           </div>
         </router-link>
 
-        <router-link to="/dashboard/reviews">
+        <router-link to="/dashboard/settings">
           <div>
             <span><i class="fas fa-thumbs-up"></i></span>
             <p>Settings</p>
