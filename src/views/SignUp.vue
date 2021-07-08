@@ -1,89 +1,90 @@
 <template>
-  <div class="sign__up">
-    <div class="form__area">
-      <div class="info">
-        <router-link to="/" class="text-center"
-          ><i class="fas fa-link brand"></i
-        ></router-link>
-        <h3>Sign Up</h3>
-        <p>See your growth and consulting support 🚀</p>
-      </div>
-
-      <form class="signup__form">
-        <div class="form-group">
-          <label for="name" class="form-label">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            class="form-control"
-            placeholder="name"
-            v-model="user.name"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="email" class="form-label">Email address</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            class="form-control"
-            placeholder="Email address"
-            v-model="user.email"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="password" class="form-label">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            class="form-control"
-            placeholder="password"
-            v-model="user.password"
-            required
-          />
+  <b-overlay :show="show" rounded="sm">
+    <div class="sign__up" :aria-hidden="show ? 'true' : null">
+      <div class="form__area">
+        <div class="info">
+          <router-link to="/" class="text-center"
+            ><i class="fas fa-link brand"></i
+          ></router-link>
+          <h3>Sign Up</h3>
+          <p>See your growth and consulting support 🚀</p>
         </div>
 
-        <div class="form-group checkbox">
-          <input type="checkbox" name="terms" id="termsConditions" /> I agree to
-          the <router-link to="/terms">terms and conditions</router-link>
-        </div>
-        <c-button
-          size="lg"
-          width="100%"
-          class="lg_button"
-          @click.prevent="signUpUser"
+        <form class="signup__form">
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form-control"
+              placeholder="name"
+              v-model="user.name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form-control"
+              placeholder="Email address"
+              v-model="user.email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+              placeholder="password"
+              v-model="user.password"
+              required
+            />
+          </div>
+
+          <div class="form-group checkbox">
+            <input type="checkbox" name="terms" id="termsConditions" /> I agree
+            to the <router-link to="/terms">terms and conditions</router-link>
+          </div>
+          <c-button
+            size="lg"
+            width="100%"
+            class="lg_button"
+            @click.prevent="signUpUser"
           >
-          <span v-if="!isLoading">Sign Up</span>
-          <Loader v-else />
-          </c-button
-        >
-      </form>
-      <!-- End of form -->
-      <h5>
-        Already have an account?
-        <router-link to="/login"><span>Sign in</span></router-link>
-      </h5>
-    </div>
-    <!-- <div class="design">
+            <span v-if="!isLoading">Sign Up</span>
+            <Loader v-else />
+          </c-button>
+        </form>
+        <!-- End of form -->
+        <h5>
+          Already have an account?
+          <router-link to="/login"><span>Sign in</span></router-link>
+        </h5>
+      </div>
+      <!-- <div class="design">
       <Auth />
     </div> -->
-  </div>
+    </div>
+  </b-overlay>
 </template>
 
 <script>
 // import Auth from "@/views/Auth";
 import { CButton } from '@chakra-ui/vue';
-import Loader from '@/components/Loader.vue'
+import Loader from '@/components/Loader.vue';
 
 export default {
   components: {
     // Auth,
     CButton,
-    Loader
+    Loader,
   },
   // Vue data
   data() {
@@ -91,23 +92,28 @@ export default {
       user: {
         name: '',
         email: '',
-        password: ''
+        password: '',
       },
-      isLoading: false
+      isLoading: false,
+      show: false,
     };
   },
   // Methods
   methods: {
     signUpUser() {
-      this.isLoading = true
+      this.show = true;
+      this.isLoading = true;
       this.$store
-        .dispatch('SIGNUP', this.user).then((response) => {
-          if(response.data.success) {
-            this.isLoading = false
+        .dispatch('SIGNUP', this.user)
+        .then((response) => {
+          if (response.data.success) {
+            this.isLoading = false;
+            this.show = false;
           }
-        }).catch(err => console.log(err))
-    }
-  }
+        })
+        .catch((err) => console.log(err));
+    },
+  },
 };
 </script>
 

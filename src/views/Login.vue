@@ -1,5 +1,6 @@
 <template>
-  <div class="login__area">
+<b-overlay :show="show" rounded="sm">
+  <div class="login__area" :aria-hidden="show ? 'true' : null">
     <div class="sign__form">
       <!-- Brand logo -->
       
@@ -44,8 +45,8 @@
           <router-link to="/login">Forgot Password?</router-link>
         </div>
         <c-button size="lg" width="100%" class="lg_button" @click.prevent="loginUser">
-          <span v-if="!isLoading">Login</span>
-          <Loader v-else />
+          <span>Login</span>
+          
         </c-button>
       </form>
       <!-- End of form -->
@@ -58,18 +59,19 @@
       <Auth />
     </div> -->
   </div>
+</b-overlay>
 </template>
 
 <script>
 // import Auth from "@/views/Auth";
 import { CButton } from "@chakra-ui/vue";
-import Loader from '@/components/Loader.vue'
+
 
 export default {
   components: {
     // Auth,
     CButton,
-    Loader
+    
   },
   // Vue data
   data () {
@@ -78,17 +80,19 @@ export default {
         email: '',
         password: ''
       },
-      isLoading: false
+      show: false
     }
   },
 
   // Vue methods
   methods: {
     loginUser() {
+      this.show = true
       this.isLoading = true
       this.$store.dispatch('LOGIN', this.user).then((response) => {
         if (response.data.success) {
           this.isLoading = false
+          this.show = false
         }
       }).catch(err => console.log(err))
     },
