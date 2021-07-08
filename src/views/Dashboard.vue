@@ -37,10 +37,10 @@
           </div>
         </router-link>
 
-        <router-link to="/dashboard/settings">
+        <router-link to="/dashboard/profile">
           <div>
             <span><i class="fas fa-thumbs-up"></i></span>
-            <p>Settings</p>
+            <p>Profile</p>
           </div>
         </router-link>
       </div>

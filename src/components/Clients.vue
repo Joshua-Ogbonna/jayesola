@@ -20,10 +20,10 @@
 
     <!-- Customer section actions -->
     <div class="actions__center">
-      <h3>Clients</h3>
+      <h3>Contacts</h3>
       <div class="action__buttons">
         <router-link to="/dashboard/clients/new-client">
-          <c-button class="customer">Add Client</c-button>
+          <c-button class="customer">Add Contact</c-button>
         </router-link>
         <!-- <c-button class="import">Import</c-button> -->
       </div>

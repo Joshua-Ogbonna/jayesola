@@ -94,7 +94,10 @@ export default {
           this.isLoading = false
           this.show = false
         }
-      }).catch(err => console.log(err))
+      }).catch(err => {
+        console.log(err)
+        this.show = false
+      })
     },
     
   }

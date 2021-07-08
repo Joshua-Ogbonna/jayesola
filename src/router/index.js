@@ -59,7 +59,7 @@ const routes = [
       { path: 'reporting', component: Reporting },
       { path: 'newlead', component: NewLead },
       { path: 'clients/new-client', component: NewClient },
-      { path: 'settings', component: Settings }
+      { path: 'profile', component: Settings }
     ],
     meta: {
       requireAuth: true

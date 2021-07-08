@@ -1,5 +1,6 @@
 <template>
-  <div class="new_leadContainer">
+<b-overlay :show="show" rounded="sm">
+  <div class="new_leadContainer" :aria-hidden="show ? 'true' : null">
     <h3>Add New Client</h3>
 
     <form>
@@ -52,6 +53,7 @@
       </button>
     </form>
   </div>
+</b-overlay>
 </template>
 
 <script>
@@ -64,16 +66,17 @@ export default {
         phone: '',
         website: ''
       },
-      loading: false
+      loading: false,
+      show: false
     };
   },
   methods: {
     addClient() {
-      this.loading = true;
+      this.show = true
       this.$store
         .dispatch('POSTCLIENTS', this.client)
         .then(() => {
-          this.loading = false;
+          this.show = false;
         })
         .catch(err => {
           console.log(err);
