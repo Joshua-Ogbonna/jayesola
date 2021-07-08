@@ -5,9 +5,9 @@
       Create Note
     </button>
     <BlueLoader v-if="this.$store.state.isLoading" />
-    <section v-if="!this.$store.state.isLoading && notes.length > 0" class="note__section">
-      <div class="notes" v-for="note in notes" :key="note._id">
-        <div class="shadow-sm p-3 mb-2 bg-body rounded">
+    <section v-if="!this.$store.state.isLoading && notes.length > 0" class="note__section row">
+      <div class="notes col-lg-6" v-for="note in notes" :key="note._id">
+        <div class="shadow-sm mb-0 bg-body rounded">
           <div class="card-body">
             {{ note.body }}
           </div>

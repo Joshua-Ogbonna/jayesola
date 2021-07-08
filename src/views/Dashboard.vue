@@ -30,10 +30,10 @@
           </div>
         </router-link>
 
-        <router-link to="/dashboard/reporting">
+        <router-link to="/dashboard/sales">
           <div>
             <span><i class="fas fa-chart-line"></i></span>
-            <p>Reporting</p>
+            <p>Sales</p>
           </div>
         </router-link>
 

@@ -25,16 +25,26 @@
         </div>
       </div>
       <div class="form-group mb-4">
-          <div class="row">
-              <div class="col-lg-6">
-                  <label for="leads" class="form-label mb-3">Your Leads</label>
-                  <input type="text" name="leads" class="form-control" v-model="leads.length">
-              </div>
-              <div class="col-lg-6">
-                  <label for="clients" class="form-label mb-3">Your Clients</label>
-                  <input type="text" name="clients" class="form-control" v-model="clients.length">
-              </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <label for="leads" class="form-label mb-3">Your Leads</label>
+            <input
+              type="text"
+              name="leads"
+              class="form-control"
+              v-model="leads.length"
+            />
           </div>
+          <div class="col-lg-6">
+            <label for="clients" class="form-label mb-3">Your Clients</label>
+            <input
+              type="text"
+              name="clients"
+              class="form-control"
+              v-model="clients.length"
+            />
+          </div>
+        </div>
       </div>
     </form>
   </div>

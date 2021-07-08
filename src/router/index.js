@@ -11,7 +11,7 @@ import Dashboard from '@/views/Dashboard'
 // Dashboard child routes components
 import Leads from '@/components/Leads'
 import Clients from '@/components/Clients'
-import Reporting from '@/components/Reporting'
+import Sales from '@/components/Sales'
 import NewLead from '@/components/NewLead'
 import NewClient from '@/components/NewClient'
 import Client from '@/components/Client'
@@ -56,7 +56,7 @@ const routes = [
     children: [
       { path: '/dashboard', component: Leads },
       { path: 'clients', component: Clients },
-      { path: 'reporting', component: Reporting },
+      { path: 'sales', component: Sales },
       { path: 'newlead', component: NewLead },
       { path: 'clients/new-client', component: NewClient },
       { path: 'profile', component: Settings }
