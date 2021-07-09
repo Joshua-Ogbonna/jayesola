@@ -23,7 +23,8 @@ export default new Vuex.Store({
     leads: [],
     clients: [],
     notes: [],
-    tasks: []
+    tasks: [],
+    products: []
   },
   getters: {
     isLoggedIn: state => !!state.token,
@@ -32,7 +33,8 @@ export default new Vuex.Store({
     leads: state => state.leads.reverse(),
     clients: state => state.clients.reverse(),
     notes: state => state.notes.reverse(),
-    tasks: state => state.tasks.reverse()
+    tasks: state => state.tasks.reverse(),
+    products: state => state.products.reverse()
   },
   mutations: {
     register_request (state) {
@@ -103,7 +105,7 @@ export default new Vuex.Store({
     note_request (state) {
       state.isLoading = true
     },
-    note_success (state, notes ) {
+    note_success (state, notes) {
       state.isLoading = false
       state.notes = notes
     },
@@ -114,6 +116,21 @@ export default new Vuex.Store({
     task_success (state, tasks) {
       state.isLoading = false
       state.tasks = tasks
+    },
+
+    // Product request
+    products_request (state) {
+      state.isLoading = true
+    },
+    products_success (state, products) {
+      state.isLoading = false
+      state.products = products
+    },
+    postProduct_request (state) {
+      state.isLoading = true
+    },
+    postProduct_success (state) {
+      state.isLoading = false
     }
   },
   actions: {
@@ -186,6 +203,38 @@ export default new Vuex.Store({
           // console.log(response);
           const user = response.data.user
           commit('profile_success', user)
+        })
+    },
+
+    GETPRODUCTS ({ commit }) {
+      commit('products_request')
+      axios
+        .get('https://frozen-refuge-45677.herokuapp.com/api/profile', {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('token')
+          }
+        })
+        .then(response => {
+          // console.log(response);
+          const products = response.data.user.products
+          commit('products_success', products)
+        })
+    },
+
+    POSTPRODUCT ({ commit }, payload) {
+      commit('postProduct_request')
+      axios.put('https://frozen-refuge-45677.herokuapp.com/api/product', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      }, payload)
+        .then(response => {
+          if (response.data.success) {
+            commit('postProduct_success')
+          }
+        })
+        .catch(err => {
+          console.log(err)
         })
     },
 
@@ -273,7 +322,7 @@ export default new Vuex.Store({
     },
 
     // Get client tasks
-    async getTasks ( { commit }, id) {
+    async getTasks ({ commit }, id) {
       commit('task_request')
       await axios
         .get('https://frozen-refuge-45677.herokuapp.com/api/client/' + id)
