@@ -223,11 +223,7 @@ export default new Vuex.Store({
 
     POSTPRODUCT ({ commit }, payload) {
       commit('postProduct_request')
-      axios.put('https://frozen-refuge-45677.herokuapp.com/api/product', {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      }, payload)
+      axios.put('https://frozen-refuge-45677.herokuapp.com/api/product/' + this.state.user._id, payload)
         .then(response => {
           if (response.data.success) {
             commit('postProduct_success')

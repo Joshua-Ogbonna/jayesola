@@ -52,57 +52,15 @@
       <!-- Product section -->
       <div class="products mt-5">
         <h3>Your Products</h3>
-        <b-button id="show-btn" @click="showModal">Create product</b-button>
+        <router-link to="/dashboard/profile/new-product">
+          <b-button id="show-btn">Create product</b-button>
+        </router-link>
 
         <div class="mt-3">
-          <b-table hover :items="products" :fields="fields"></b-table>
+          <b-table hover :items="this.$store.getters.products" :fields="fields"></b-table>
         </div>
       </div>
 
-      <!-- Add Product Modal -->
-      <div>
-        <b-modal ref="my-modal" hide-footer title="Using Component Methods">
-          <template #modal-title> Product </template>
-          <div class="d-block">
-            <form>
-              <div class="form-group mb-3">
-                <label for="category" class="form-label">Product Type</label>
-                <input
-                  type="text"
-                  name="category"
-                  class="form-control"
-                  placeholder="e.g. e-book, cosmetic, product"
-                />
-              </div>
-              <div class="form-group mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input
-                  type="text"
-                  name="title"
-                  class="form-control"
-                  placeholder="e.g. Think and grow rich"
-                />
-              </div>
-              <div class="form-group mb-3">
-                <label for="description" class="form-label">Description</label>
-                <input
-                  type="text"
-                  name="description"
-                  class="form-control"
-                  placeholder="Description"
-                />
-              </div>
-            </form>
-          </div>
-          <b-button
-            class="mt-3"
-            variant="outline-danger"
-            block
-            @click="addProduct"
-            >Add Product</b-button
-          >
-        </b-modal>
-      </div>
     </div>
   </b-overlay>
 </template>
@@ -114,13 +72,8 @@ export default {
       user: {},
       leads: '',
       clients: '',
-      products: '',
+      products: [],
       fields: ['category', 'title', 'description'],
-      product: {
-        category: '',
-        title: '',
-        description: '',
-      },
       show: false,
     };
   },
@@ -131,31 +84,7 @@ export default {
     this.leads = vuex.leads;
     this.clients = vuex.clients;
     this.products = vuex.user.products;
-  },
-  methods: {
-    addProduct() {
-      this.show = true;
-      this.$store
-        .dispatch('POSTPRODUCT', this.product)
-        .then((res) => {
-          if (res.data.success) {
-            this.$store.dispatch('GETPRODUCTS');
-            this.show = false;
-            this.hideModal();
-          }
-        })
-        .catch((err) => {
-          this.show = true;
-          console.log(err);
-        });
-    },
-    showModal() {
-      this.$refs['my-modal'].show();
-    },
-    hideModal() {
-      this.$refs['my-modal'].hide();
-    },
-  },
+  }
 };
 </script>
 
