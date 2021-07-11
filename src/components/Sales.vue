@@ -5,10 +5,15 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col"></th>
+          <th scope="col">Name</th>
+          <th scope="col">Stage</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Owner</th>
+          <th scope="col">Type</th>
+          <th scope="col">Product Associate</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Contact Associate</th>
         </tr>
       </thead>
       <tbody></tbody>
