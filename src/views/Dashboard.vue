@@ -37,6 +37,13 @@
           </div>
         </router-link>
 
+        <router-link to="/dashboard/analytics">
+          <div>
+            <span><i class="fas fa-chart-bar"></i></span>
+            <p>Analytics</p>
+          </div>
+        </router-link>
+
         <router-link to="/dashboard/profile">
           <div>
             <span><i class="fas fa-thumbs-up"></i></span>
