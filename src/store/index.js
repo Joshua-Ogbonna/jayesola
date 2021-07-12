@@ -24,7 +24,8 @@ export default new Vuex.Store({
     clients: [],
     notes: [],
     tasks: [],
-    products: []
+    products: [],
+    sales: []
   },
   getters: {
     isLoggedIn: state => !!state.token,
@@ -34,7 +35,8 @@ export default new Vuex.Store({
     clients: state => state.clients.reverse(),
     notes: state => state.notes.reverse(),
     tasks: state => state.tasks.reverse(),
-    products: state => state.products.reverse()
+    products: state => state.products.reverse(),
+    sales: state => state.sales.reverse()
   },
   mutations: {
     register_request (state) {
@@ -131,6 +133,20 @@ export default new Vuex.Store({
     },
     postProduct_success (state) {
       state.isLoading = false
+    },
+    // Sale request
+    sale_request (state) {
+      state.isLoading = true
+    },
+    sale_success (state) {
+      state.isLoading = false
+    },
+    getSales_request (state) {
+      state.isLoading = true
+    },
+    getSales_success (state, sales) {
+      state.sales = sales
+      state.isLoading = false
     }
   },
   actions: {
@@ -217,13 +233,19 @@ export default new Vuex.Store({
         .then(response => {
           // console.log(response);
           const products = response.data.user.products
+          
           commit('products_success', products)
         })
     },
 
     POSTPRODUCT ({ commit }, payload) {
       commit('postProduct_request')
-      axios.put('https://frozen-refuge-45677.herokuapp.com/api/product/' + this.state.user._id, payload)
+      axios
+        .put(
+          'https://frozen-refuge-45677.herokuapp.com/api/product/' +
+          this.state.user._id,
+          payload
+        )
         .then(response => {
           if (response.data.success) {
             commit('postProduct_success')
@@ -234,13 +256,27 @@ export default new Vuex.Store({
         })
     },
 
+    GETSALES ({ commit }) {
+      commit('getSales_request')
+      axios.get('https://frozen-refuge-45677.herokuapp.com/api/profile', {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      })
+      .then(response => {
+        // console.log(response);
+        const sales = response.data.user.sales
+        
+        commit('getSales_success', sales)
+      })
+    },
     // Get a lead
     GETLEAD ({ commit }) {
       commit('lead_request')
       axios
         .get(
           'https://frozen-refuge-45677.herokuapp.com/api/leads/' +
-            this.state.user._id
+          this.state.user._id
         )
         .then(response => {
           const leads = response.data.leads.leads
@@ -271,7 +307,7 @@ export default new Vuex.Store({
       await axios
         .get(
           'https://frozen-refuge-45677.herokuapp.com/api/clients/' +
-            this.state.user._id
+          this.state.user._id
         )
         .then(response => {
           // console.log(response.data.clients.clients)
@@ -326,6 +362,25 @@ export default new Vuex.Store({
           if (response.data.success) {
             const tasks = response.data.data.tasks
             commit('task_success', tasks)
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+
+    // Post sales
+    async postSale ({ commit }, payload) {
+      commit('sale_request')
+      await axios
+        .put(
+          'https://frozen-refuge-45677.herokuapp.com/api/sale/' +
+          this.state.user._id,
+          payload
+        )
+        .then(response => {
+          if (response.data.success) {
+            commit('sale_success')
           }
         })
         .catch(err => {

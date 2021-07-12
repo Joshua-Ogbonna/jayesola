@@ -17,6 +17,7 @@ import NewClient from '@/components/NewClient'
 import Client from '@/components/Client'
 import Settings from '@/components/Settings'
 import NewProduct from '@/components/NewProduct'
+import NewSale from '@/components/NewSale'
 
 // Client Children routes components
 import Notes from '@/components/Notes'
@@ -61,7 +62,8 @@ const routes = [
       { path: 'newlead', component: NewLead },
       { path: 'clients/new-client', component: NewClient },
       { path: 'profile', component: Settings },
-      { path: 'profile/new-product', component: NewProduct, name: 'New Product' }
+      { path: 'profile/new-product', component: NewProduct, name: 'New Product' },
+      { path: 'sales/new-sale', component: NewSale, name: 'New Sale' }
     ],
     meta: {
       requireAuth: true
