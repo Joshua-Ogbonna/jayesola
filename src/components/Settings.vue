@@ -51,13 +51,41 @@
 
       <!-- Product section -->
       <div class="products mt-5">
-        <h3>Your Products</h3>
-        <router-link to="/dashboard/profile/new-product">
-          <b-button id="show-btn">Create product</b-button>
-        </router-link>
+        <div class="products__actions">
+
+          <h3>Your Products</h3>
+          <router-link to="/dashboard/profile/new-product">
+            <b-button id="show-btn">Create product</b-button>
+          </router-link>
+        </div>
 
         <div class="mt-3">
-          <b-table hover :items="this.$store.getters.products" :fields="fields"></b-table>
+          <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Categories</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="product in this.$store.getters.products" :key="product._id">
+          <td><input type="checkbox" name="check"></td>
+          <td> {{ product.category }} </td>
+          <td> {{ product.title }} </td>
+          <td> {{ product.description }} </td>
+          
+          <td>
+            <router-link to="/">
+              <i class="fas fa-info-circle"></i>
+            </router-link>
+            <i class="far fa-trash-alt delete" @click="removeProduct(product._id)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
         </div>
       </div>
 
@@ -84,6 +112,17 @@ export default {
     this.leads = vuex.leads;
     this.clients = vuex.clients;
     this.products = vuex.user.products;
+  },
+  methods: {
+    removeProduct (id) {
+      this.show = true
+      this.$store.dispatch('DELETEPRODUCT', id).then(() => {
+        this.$store.dispatch('GETPRODUCTS')
+        this.show = false
+      }).catch(() => {
+        this.show = true
+      })
+    }
   }
 };
 </script>
@@ -121,5 +160,26 @@ button:hover,
 button:focus {
   background-color: rgb(40, 49, 92) !important;
   outline: none;
+}
+tbody {
+  font-size: 15px;
+  color: grey;
+  line-height: 40px;
+}
+tbody a {
+  text-decoration: none;
+  color: #808080;
+  font-size: 13px;
+  margin-right: 20px;
+}
+tbody a:hover {
+  text-decoration: underline;
+}
+.products__actions {
+  display: flex;
+  justify-content: space-between;
+}
+.delete {
+  cursor: pointer;
 }
 </style>
