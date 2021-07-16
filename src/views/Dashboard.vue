@@ -101,11 +101,6 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch('SIGNOUT');
-    },
-    userInitials() {
-      let splitString = this.$store.getters.user.name.split(' ')
-      console.log(this.user)
-      return splitString[0][0] + splitString[1][0]
     }
   },
 
@@ -118,7 +113,6 @@ export default {
   // Created lifecycle
   created() {
     this.$store.dispatch('GETPROFILE');
-    console.log(this.userInitials())
   },
 
 };
