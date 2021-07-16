@@ -16,10 +16,10 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
 // Vue filters
-Vue.filter('initials', (value) => {
-  const splitValue = value.split(' ')
-  return splitValue[0][0] + splitValue[1][0]
-})
+// Vue.filter('initials', (value) => {
+//   const splitValue = value.split(' ')
+//   return splitValue[0][0] + splitValue[1][0]
+// })
 Vue.filter('secondChar', (value) => {
   const splitValue = value.split(' ')
   return splitValue[1][0]
