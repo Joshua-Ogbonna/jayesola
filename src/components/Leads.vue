@@ -4,7 +4,7 @@
 
     <div class="form__search">
       <c-form-control>
-        <i class="fas fa-search search"></i>
+        <!-- <i class="fas fa-search search"></i>
         <c-input
           type="search"
           id="search"
@@ -12,7 +12,7 @@
           placeholder="Search for something"
           size="lg"
           width="550px"
-        ></c-input>
+        ></c-input> -->
       </c-form-control>
       <div class="icons">
         <i class="fas fa-question-circle"></i>
@@ -45,14 +45,13 @@
 </template>
 
 <script>
-import { CFormControl, CInput, CButton } from '@chakra-ui/vue';
+import { CFormControl, CButton } from '@chakra-ui/vue';
 import Tables from '@/components/Tables'
 import BlueLoader from '@/components/BlueLoader';
 export default {
   name: 'Customers',
   components: {
     CFormControl,
-    CInput,
     CButton,
     BlueLoader,
     Tables
