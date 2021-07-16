@@ -27,7 +27,7 @@
                 </option>
                 <option value="Contract Sent">Contract Sent</option>
                 <option value="Closed Won">Closed Won</option>
-                <option value="Closed Lost">Closed Lost</option>
+                <option value="Closed Lost">Closed Lost</option>  
               </select>
             </div>
           </div>

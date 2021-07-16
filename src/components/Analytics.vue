@@ -60,10 +60,32 @@
             </div>
 
             <div class="card-body">
-              <p class="card-text">
-                <!-- With supporting text below as a natural lead-in to additional
-                content. -->
-              </p>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <h5>Appointment Scheduled</h5>
+                    {{ this.$store.getters.sales.map(sale => sale.stage === 'Appointment Schedule').length }}
+                  </div>
+                  <div class="col-lg-3">
+                    <h5>Qualified to Buy</h5>
+                    {{ this.$store.getters.sales.map(sale => sale.stage === 'Qualified to Buy').length }}
+                  </div>
+                  <div class="col-lg-3">
+                    <h5>Presentation Scheduled</h5>
+                    {{ this.$store.getters.sales.map(sale => sale.stage === 'Appointment Schedule').length }}
+                  </div>
+                  <div class="col-lg-3">
+                    <h5>Contract Sent</h5>
+                    {{ this.$store.getters.sales.map(sale => sale.stage === 'Appointment Schedule').length }}
+                  </div>
+                  <div class="col-lg-3">
+                    <h5>Closed Won</h5>
+                    {{ this.$store.getters.sales.map(sale => sale.stage === 'Appointment Schedule').length }}
+                  </div>
+                  <div class="col-lg-3">
+                    <h5>Closed Lost</h5>
+                    {{ this.$store.getters.sales.map(sale => sale.stage === 'Appointment Schedule').length }}
+                  </div>
+                </div>
             </div>
           </div>
         </div>

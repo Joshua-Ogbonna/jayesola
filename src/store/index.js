@@ -209,6 +209,7 @@ export default new Vuex.Store({
     SIGNOUT({ commit }) {
       commit('logout');
       localStorage.removeItem('token');
+      localStorage.removeItem('vuex')
       delete axios.defaults.headers.common.Authorization;
       router.push('/login');
     },
