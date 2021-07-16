@@ -5,7 +5,7 @@
       <!-- User Information -->
       <div class="card">
         <div class="card-body">
-          <h4>{{ user.name | initials }}</h4>
+          <!-- <h4>{{ user.name | initials }}</h4> -->
           <div class="user__info">
             <h5>{{ user.name }}</h5>
             <p>{{ user.email }}</p>
