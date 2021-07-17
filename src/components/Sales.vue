@@ -37,7 +37,43 @@
           </tr>
         </tbody>
       </table>
+      
+      
+      <!-- Email campaigns -->
+
+      <div class="email__campaigns">
+        <div class="email__actions">
+          <h3>Email Campaigns</h3>
+
+          <router-link to="/dashboard/campaigns">
+            <button>Create Campaign</button>
+          </router-link>
+        </div>
+
+        <!-- Emails -->
+        
+        
+          <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Message</th>
+              <th>Date Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="message in messages" :key="message.id">
+              <td><input type="checkbox" name="check" /></td>
+              <td> {{ message.message }} </td>
+              <td> {{ message.dateCreated }} </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
     </div>
+
+
   </b-overlay>
 </template>
 
@@ -46,10 +82,14 @@ export default {
   data() {
     return {
       show: false,
+      messages: []
     };
   },
   mounted() {
     this.$store.dispatch('GETSALES');
+    let messages = localStorage.getItem('emails')
+    messages = messages ? JSON.parse(messages) : []
+    this.messages = messages.reverse()
   },
   methods: {
     removeSale(id) {
@@ -72,13 +112,14 @@ export default {
 h3 {
   font-weight: 800;
 }
-.sales__actions {
+.sales__actions,
+.email__actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
 }
-.sales__actions button {
+button {
   border: none;
   font-size: 13px;
   padding: 10px 30px;
@@ -101,5 +142,8 @@ tbody a:hover {
 }
 .delete {
   cursor: pointer;
+}
+.email__actions {
+  margin-top: 150px;
 }
 </style>

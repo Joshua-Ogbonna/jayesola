@@ -17,6 +17,7 @@
     "core-js": "^3.6.5",
     "emailjs-com": "^3.1.0",
     "miragejs": "^0.1.41",
+    "uuid": "^8.3.2",
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.1",
     "vue-router": "^3.2.0",
