@@ -3,10 +3,13 @@
     <!-- Search head button and head functionalities -->
 
     <div class="form__search">
-      
+      <h1></h1>
       <div class="icons">
         <i class="fas fa-question-circle"></i>
+        <router-link to="/dashboard/notifications">
+        
         <i class="fas fa-bell"></i>
+        </router-link>
       </div>
     </div>
 
@@ -65,6 +68,9 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
+.form__search a {
+  color: #000;
+}
 .form__search .search {
   position: absolute;
   top: 30px;
@@ -97,7 +103,7 @@ export default {
 .actions__center .action__buttons .customer {
   margin-right: 20px;
   border: none;
-  background: #1da1f2;
+  background: rgb(40, 49, 92);
   color: #fff;
 }
 .actions__center .action__buttons .import {

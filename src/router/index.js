@@ -20,6 +20,7 @@ import NewProduct from '@/components/NewProduct';
 import NewSale from '@/components/NewSale';
 import Analytics from '@/components/Analytics';
 import Campaigns from '@/components/Campaigns';
+import Notifications from '@/components/Notifications'
 
 // Client Children routes components
 import Notes from '@/components/Notes';
@@ -71,7 +72,8 @@ const routes = [
       },
       { path: 'sales/new-sale', component: NewSale, name: 'New Sale' },
       { path: 'analytics', component: Analytics, name: 'Analytics' },
-      { path: 'campaigns', component: Campaigns, name: 'Campaigns' }
+      { path: 'campaigns', component: Campaigns, name: 'Campaigns' },
+      { path: 'notifications', component: Notifications, name: 'Notifications' },
     ],
     meta: {
       requireAuth: true

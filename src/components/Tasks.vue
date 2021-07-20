@@ -131,7 +131,7 @@
                   <div class="col-lg-6">
                     <label for="dueDate" class="form-label">Due Date</label>
                     <input
-                      type="datetime-local"
+                      type="date"
                       name="dueDate"
                       class="form-control"
                       v-model="task.dueDate"

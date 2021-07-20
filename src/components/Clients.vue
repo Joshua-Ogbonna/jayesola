@@ -1,10 +1,12 @@
 <template>
   <div>
     <div class="form__search">
-      
+      <h1></h1>
       <div class="icons">
         <i class="fas fa-question-circle"></i>
-        <i class="fas fa-bell"></i>
+        <router-link to="/dashboard/notifications">
+          <i class="fas fa-bell"></i>
+        </router-link>
       </div>
     </div>
 
@@ -111,6 +113,9 @@ export default {
 }
 .form__search input:focus {
   z-index: 0;
+}
+.form__search a {
+  color: #000;
 }
 /* Actions center */
 .actions__center {
