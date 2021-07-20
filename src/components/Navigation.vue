@@ -36,14 +36,17 @@
           </ul>
 
           <ul class="navbar-nav ms-auto right_ul">
-            <li class="nav-item">
+            <li class="nav-item" v-if="!this.$store.state.token">
               <router-link to="/login" class="nav-link">Login</router-link>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" v-if="!this.$store.state.token">
               <router-link to="sign-up" style="text-decoration: none;">
 
               <Button class="button" variant="solid" content="Sign Up" />
               </router-link>
+            </li>
+            <li class="nav-item" v-if="this.$store.state.token">
+              <router-link to="/dashboard" class="nav-link">Dashboard</router-link>
             </li>
           </ul>
         </div>
